@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fairbairn Nutrition — James Connold Race Day Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { width: 100%; height: 100%; overflow: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: #F4F2EF; color: #111; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #CCC9C4; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+const C = {
+  blue:       '#63A0BF',
+  orange:     '#DE4417',
+  white:      '#FFFFFF',
+  bg:         '#F4F2EF',
+  soft:       '#FDFCFB',
+  dark:       '#111111',
+  muted:      '#777777',
+  rule:       '#E6E4E0',
+  blueTint:   '#EEF6FB',
+  orangeTint: '#FFF3F0',
+  greenTint:  '#F0FAF4',
+};
+
+// ─── DATA ──────────────────────────────────────────────────────────────────
+
+const PLAN = {
+  athlete:      'James Connold',
+  race:         'Jurassic Coast Ultra Challenge',
+  distance:     '100 km',
+  route:        'Corfe Castle to Bridport',
+  date:         'Saturday 16 May 2026',
+  start:        '7:00 am',
+  targetFinish: '16–18 hours',
+
+  keyNumbers: [
+    { label: 'Carb Target',          value: '60–70 g/hr',    sub: 'avg ~66 g/hr across race' },
+    { label: 'Total In-Race Carbs',  value: '~1,122 g',      sub: '17 hours of running' },
+    { label: 'Fluid Target',         value: '900–950 ml/hr', sub: '3 vessels: 2 carb flasks + bladder' },
+    { label: 'Total Fluid',          value: '~15 L',         sub: 'across full race' },
+    { label: 'Sodium Target',        value: '450–500 mg/hr', sub: '~500 mg/L in carb flasks' },
+    { label: 'Caffeine (late)',       value: '300 mg total',  sub: '3 × 100 mg gels, Hrs 14–16 only' },
+  ],
+
+  overviewPoints: [
+    'Nothing new on race day — every product in this plan has been practised in training.',
+    'Carb target is 60–70 g/hr. Front half slightly higher; back half slightly lower as appetite drops.',
+    'Mix of Squares Bars, jelly babies, dates, Barebells and aid station food — rotated to prevent flavour fatigue.',
+    'Aid stations are roughly every 12.5 km. Major stops at 25 km, 58 km (Weymouth), 83 km and finish.',
+    'Three caffeine gels in the dark hours (Hrs 14, 15 and 16). Trial them on your next two long runs.',
+    'Carry more than you need — one extra Squares Bar, one extra protein bar and a reserve bag of jelly babies.',
+  ],
+
+  carbLoading: {
+    intro:  'Carbohydrate loading maximises muscle and liver glycogen stores before the race. The day before will be busy with travel and final prep — build carbs in steadily across Thursday and Friday rather than one big pasta dinner.',
+    target: '7–8 g/kg bodyweight (730–830 g/day) for 2 days before',
+    rules: [
+      { title: 'High-carb, low-fat foods',  detail: 'White bread, white rice, white pasta, noodles, crumpets, rice pudding, potatoes, jam, honey, bananas, sweets. Creamy sauces and pastries fill you up with fat before hitting the carb target.' },
+      { title: 'Ease off fibre',            detail: 'Swap wholegrain for white in the 48 hours before. Stick to lower-fibre fruit — banana and melon rather than berries or apples.' },
+      { title: 'Split across 5–6 meals',    detail: 'If appetite is the limiter, graze rather than eating three big meals. Liquid carbs (squash, diluted juice, carb drink) help hit the target without feeling full.' },
+      { title: 'Keep drinking',             detail: 'Glycogen binds water — you will need to keep fluid intake up as stores fill. Urine should be pale yellow.' },
+    ],
+  },
+
+  breakfast: {
+    intro:    'Breakfast tops up liver glycogen, which depletes overnight. Eat 2–3 hours before the 7 am start — set your alarm for 4–4:30 am.',
+    target:   '125–145 g of carbs (1.2–1.4 g/kg)',
+    items: [
+      { food: '1 plain bagel (split and toasted)',  carbs: '~55 g' },
+      { food: '2 tbsp honey or jam on bagel',       carbs: '~30 g' },
+      { food: '1 banana, sliced',                   carbs: '~25 g' },
+      { food: '100 g Greek yoghurt',                carbs: '~5 g'  },
+      { food: '250 ml fruit juice',                 carbs: '~25 g' },
+    ],
+    total:    '~140 g',
+    fallback: 'If appetite is low, blend: banana + yoghurt + honey + milk + a scoop of carb powder. Liquid breakfasts work — this is the planned fallback.',
+    preStart: '30–45 min before start: 1 banana (~25 g carbs) + sips of electrolyte drink. Coffee with breakfast, not at the start line.',
+  },
+
+  timeline: [
+    { time: 'T − 3 hr',    section: 'Pre-Race Breakfast',       what: 'Full breakfast (see Race Morning)',                                                                                    carbs: '~140', avgGH: '—',  type: 'pre'   },
+    { time: 'T − 30 min',  section: 'Pre-Start',                 what: '1 banana + sips of electrolyte drink',                                                                               carbs: '~25',  avgGH: '—',  type: 'pre'   },
+    { time: '7:00 am',     section: 'START – Corfe Castle',      what: '—',                                                                                                                  carbs: '—',    avgGH: '—',  type: 'start' },
+    { time: '7–8 am',      section: 'Hr 1 – Purbeck Way',        what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '55', type: 'move'  },
+    { time: '8–9 am',      section: 'Hr 2 – Towards Swanage',    what: 'Drink 35 g + 5 jelly babies (25 g). AID 1: refill both carb flasks and bladder. Top up at the table. Skip food.',   carbs: '60',   avgGH: '58', type: 'aid',  aid: 'AID 1 · 12.5 km', aidNote: 'Refill only. Skip food. 3 min.' },
+    { time: '9–10 am',     section: 'Hr 3 – Coast',              what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '57', type: 'move'  },
+    { time: '10–11 am',    section: 'Hr 4 – Back Towards Corfe', what: 'Drink 35 g + 2 dates with nut butter (35 g)',                                                                        carbs: '70',   avgGH: '60', type: 'move'  },
+    { time: '11 am–12 pm', section: 'Hr 5 – Purbeck Ridge',      what: 'Drink 35 g. AID 2: half sandwich (17 g) + handful pretzels (18 g) + 2 jelly babies on the go (10 g). Refill flasks and bladder. 5–8 min.', carbs: '80', avgGH: '64', type: 'aid', aid: 'AID 2 · 25 km ★', aidNote: '5–8 min. Half sandwich + pretzels. Refill all.' },
+    { time: '12–1 pm',     section: 'Hr 6 – Towards Lulworth',   what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '63', type: 'move'  },
+    { time: '1–2 pm',      section: 'Hr 7 – Durdle Door',        what: 'Drink 35 g + 4 jelly babies (20 g). Refill carb flasks and bladder. Top up at the table. 5 min.',                   carbs: '55',   avgGH: '61', type: 'aid',  aid: 'AID 3 · 37.5 km', aidNote: 'Refill all. 5 min.' },
+    { time: '2–3 pm',      section: 'Hr 8 – Coast Path',         what: 'Drink 35 g + 1 Barebells (17 g) + 3 jelly sweets (15 g)',                                                            carbs: '67',   avgGH: '62', type: 'move'  },
+    { time: '3–4 pm',      section: 'Hr 9 – Towards Weymouth',   what: 'Drink 35 g + 1 Squares Bar (30 g). Note: AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs).',                  carbs: '65',   avgGH: '62', type: 'move'  },
+    { time: '4–5 pm',      section: 'Hr 10 – Into Weymouth',     what: 'Drink 35 g. AID 4: hot pasta/rice/potatoes (~55 g) + broth. Refill everything, restock pockets. 10–15 min.',        carbs: '90',   avgGH: '65', type: 'hot',  aid: 'AID 4 · 58 km 🍲 HOT MEAL', aidNote: 'Full stop 10–15 min. Hot carbs + broth. Full restock.' },
+    { time: '5–6 pm',      section: 'Hr 11 – Out of Weymouth',   what: 'Drink 35 g + 2 jelly babies (10 g). Let meal settle. Drink steadily.',                                               carbs: '45',   avgGH: '63', type: 'move'  },
+    { time: '6–7 pm',      section: 'Hr 12 – Chesil Beach',      what: 'Drink 35 g + 2 dates with nut butter (35 g)',                                                                        carbs: '70',   avgGH: '64', type: 'move'  },
+    { time: '7–8 pm',      section: 'Hr 13 – Along Chesil',      what: 'Drink 35 g. AID 5: handful pretzels (18 g) + 3 jelly babies (15 g). Refill flasks and bladder. Warm layer on. 5 min.', carbs: '68', avgGH: '64', type: 'aid', aid: 'AID 5 · 70 km', aidNote: 'Refill all. Warm layer on. 5 min.' },
+    { time: '8–9 pm',      section: 'Hr 14 – Dusk to West Bay',  what: 'Drink 35 g + Caffeine gel #1 (30 g, 100 mg caffeine) + biltong alongside. Head torch on.',                          carbs: '65',   avgGH: '64', type: 'dark', caffeine: 1 },
+    { time: '9–10 pm',     section: 'Hr 15 – West Bay',          what: 'Drink 35 g. AID 6: Caffeine gel #2 (30 g, 100 mg caffeine) + half sandwich (12 g) + broth. Refill. 8–10 min.',     carbs: '77',   avgGH: '65', type: 'hot',  aid: 'AID 6 · 83 km 🍲 BRUNCH', aidNote: '8–10 min. Hot food + broth. Caffeine gel #2.', caffeine: 2 },
+    { time: '10–11 pm',    section: 'Hr 16 – Dark Coastal Path', what: 'Drink 35 g + Caffeine gel #3 (30 g, 100 mg caffeine) + 3 jelly babies (15 g)',                                       carbs: '80',   avgGH: '66', type: 'dark', caffeine: 3 },
+    { time: '11 pm–12 am', section: 'Hr 17 – Final Push',        what: 'AID 7: water top-up only (switch to bladder). 1 Squares Bar (30 g) + 5 jelly babies (25 g) + pretzels from AID 7 (10 g). No caffeine this hour.', carbs: '65', avgGH: '66', type: 'aid', aid: 'AID 7 · 95 km', aidNote: 'Switch to bladder. Water top-up only. Quick in and out.' },
+    { time: '~Midnight',   section: 'FINISH – Bridport',         what: 'Cooked meal.',                                                                                                       carbs: '—',    avgGH: '—',  type: 'finish' },
+  ],
+
+  aidStations: [
+    { id: 'aid1', label: 'AID 1',  km: 12.5, time: '~9 am',     type: 'snack',  stop: '3 min',     action: 'Refill both carb flasks and bladder. Top up at the table. Skip food — nothing needed here.', food: [] },
+    { id: 'aid2', label: 'AID 2',  km: 25,   time: '~11:30 am', type: 'stop',   stop: '5–8 min',   action: 'Half sandwich + handful of pretzels at the stop. Refill both carb flasks and bladder. Drink an extra cup. 2 jelly babies on the move.', food: ['Half sandwich (17 g carbs)', 'Handful pretzels (18 g carbs)', '2 jelly babies on the go (10 g)'] },
+    { id: 'aid3', label: 'AID 3',  km: 37.5, time: '~2 pm',     type: 'snack',  stop: '5 min',     action: 'Refill both carb flasks and bladder. Top up at the table. 5 min — this starts the longest leg (~20 km to Weymouth). Use a zip-lock to top up one carb flask at around the 2-hour mark mid-leg.', food: [] },
+    { id: 'aid4', label: 'AID 4',  km: 58,   time: '~5 pm',     type: 'hot',    stop: '10–15 min', action: 'Hot carbs (pasta, rice or potatoes). Broth if offered. Full refill of both carb flasks and bladder. Drink two cups at the table. Restock pockets from vest reserve.', food: ['Hot pasta / rice / potatoes (~55 g carbs)', 'Broth (sodium + warmth)'] },
+    { id: 'aid5', label: 'AID 5',  km: 70,   time: '~7:30 pm',  type: 'snack',  stop: '5 min',     action: 'Refill both carb flasks and bladder. Grab pretzels for salt. Put warm layer on. 5 min.', food: ['Pretzels (18 g carbs)', '3 jelly babies (15 g)'] },
+    { id: 'aid6', label: 'AID 6',  km: 83,   time: '~9:30 pm',  type: 'hot',    stop: '8–10 min',  action: 'Hot food if appetite holds. Broth for warmth. Half sandwich. Caffeine gel #2 here. Head torch on if not already.', food: ['Caffeine gel #2 — 100 mg caffeine + 30 g carbs', 'Half sandwich (12 g carbs)', 'Broth'] },
+    { id: 'aid7', label: 'AID 7',  km: 95,   time: '~11 pm',    type: 'snack',  stop: 'Quick',     action: 'Switch to bladder — water top-up only, no carb flask refill needed. Squares Bar + jelly babies + pretzels from the table. No caffeine this final hour.', food: ['1 Squares Bar (30 g carbs)', '5 jelly babies (25 g carbs)', 'Pretzels (10 g carbs)'] },
+    { id: 'fin',  label: 'Finish', km: 100,  time: '~Midnight', type: 'finish', stop: '—',         action: 'Sit down. Eat the cooked meal. Celebrate.', food: ['Cooked meal'] },
+  ],
+
+  hydration: {
+    total:  '~15 L across the race',
+    rate:   '900–950 ml/hr target across all three vessels',
+    sodium: '~500 mg/L in carb flasks · 450–500 mg/hr overall',
+    vessels: [
+      { name: 'Carb Flask 1', capacity: '500 ml (chest)', role: 'Carb + electrolyte mix', detail: '~30–40 g carbs per flask at ~8% concentration. Sip throughout each leg. Refill at every aid station. Carry zip-lock carb powder to re-mix mid-leg on the AID 3 → Weymouth stretch (~20 km, ~3.5 hrs).', tag: 'Carb flask' },
+      { name: 'Carb Flask 2', capacity: '500 ml (chest)', role: 'Carb + electrolyte mix', detail: '~30–40 g carbs per flask at ~8% concentration. Sip from both chest flasks throughout each leg. Combined, these deliver your hourly carb target in fluid alongside your solid food.', tag: 'Carb flask' },
+      { name: 'Bladder',      capacity: '1.5–2 L (back)', role: 'Plain water + electrolyte tabs', detail: 'Makes up the balance of your fluid to hit 900–950 ml/hr total. If anything feels off digestively, stop the carb flasks and drink from the bladder only until things settle. Switch to bladder-only in the final hour (Hr 17).', tag: 'Water / backup' },
+    ],
+    rules: [
+      'Refill both carb flasks and the bladder at every aid station.',
+      'Drink 1–2 extra cups at each stop before leaving — do not rely on carry alone.',
+      'Sodium target: ~500 mg/L in carb flasks. Around 450–500 mg/hr overall.',
+      'Salty foods (biltong, pretzels, crisps, broth) supplement sodium without loading the gut.',
+      'AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs) — use a zip-lock to top up one carb flask at the 2-hour mark mid-leg.',
+      'If gut issues strike: stop carb flasks, switch to bladder only, let things settle for an hour before reintroducing.',
+      'Let thirst guide fine-tuning in the back half. Overdrinking is a bigger risk than underdrinking on a mild day.',
+    ],
+  },
+
+  caffeine: {
+    intro:   'Three Precision Fuel and Hydration caffeine gels spread across the dark hours. Each gel = 30 g carbs + 100 mg caffeine, roughly 90 minutes apart. Total: 300 mg caffeine — just under your 3 mg/kg ceiling. No caffeine in the final hour (Hr 17).',
+    warning: 'You have not used these in training yet. Trial them on your next two long runs and let me know how you get on. If they do not agree with you, drop them and we will work out an alternative caffeine source before race day.',
+    gels: [
+      { num: 1, when: 'Hr 14 — ~8 pm (approaching West Bay)',   why: 'First lift as the head torch goes on and the course quietens down. Kicks in as you go fully dark.' },
+      { num: 2, when: 'AID 6 — 83 km (~9:30 pm)',              why: 'Second lift at the last major stop, alongside food and broth. Head torch on if not already.' },
+      { num: 3, when: 'Hr 16 — ~10:30 pm (dark coastal path)', why: 'Final lift for the last push before Bridport. No caffeine after this — final hour is caffeine-free.' },
+    ],
+    tips: [
+      'Do not take all three at once — space them ~90 minutes apart as planned.',
+      'Each gel also contributes 30 g of carbs — count these in your hourly total.',
+      'Feel free to use on an ad-hoc basis depending on how you feel — just factor in the 30 g carbs each time.',
+      'No caffeine in Hr 17 (final hour) — last gel goes in at ~10:30 pm.',
+    ],
+  },
+
+  checklist: {
+    categories: [
+      {
+        id: 'night', title: 'Night Before — Pack Your Vest', icon: '🌙',
+        note: 'Do this the evening before. Lay everything out, count it, then pack it.',
+        items: [
+          { id: 'sq',  text: '2× Squares Bar (+ 1 reserve)',                          detail: 'Hrs 9 and 17 on the timeline. Spare in case of spillage.' },
+          { id: 'bb',  text: '2× Barebells protein bar (+ 1 reserve)',               detail: 'Hrs 8 and 14. Different texture from the Squares Bars.' },
+          { id: 'cg',  text: '3× PF&H caffeine gel — 100 mg caffeine / 30 g carbs', detail: 'Hr 14 (~8 pm), AID 6 (83 km, ~9:30 pm), Hr 16 (~10:30 pm). Keep separate — dark hours only.' },
+          { id: 'jb',  text: '~35 jelly babies (approx. 2 standard bags)',           detail: 'Used across Hrs 1, 2, 3, 5, 6, 7, 11, 13, 16 and 17. Carry a reserve handful.' },
+          { id: 'js',  text: '~6 jelly sweets',                                      detail: 'Hr 8 — variety from jelly babies.' },
+          { id: 'dt',  text: '4× dates with nut butter (pre-portioned in zip-lock)', detail: 'Hrs 4 and 12. Pre-portion so they are easy to grab while moving.' },
+          { id: 'bi',  text: 'Biltong — 1 small handful + extra for ad-hoc use',    detail: 'Planned at Hr 14. Use at other times as a palette reset. Salt + protein.' },
+          { id: 'cp',  text: '2–3 zip-locks of carb powder',                         detail: 'For topping up one carb flask mid-leg on the AID 3 → Weymouth stretch (~3.5 hrs).' },
+          { id: 'et',  text: '10+ electrolyte tabs',                                 detail: 'For bladder refills throughout the race.' },
+          { id: 'xb',  text: 'Reserve nutrition packed (in vest or accessible)',      detail: '1 extra Squares Bar, 1 extra protein bar, reserve bag of jelly babies.' },
+        ],
+      },
+      {
+        id: 'morning', title: 'Race Morning — Breakfast (4:00–4:30 am)', icon: '☀',
+        note: 'Eat 2–3 hours before the 7 am start. If appetite is low, go straight to the liquid fallback.',
+        items: [
+          { id: 'bg',  text: '1 plain bagel — split and toasted',        detail: '~55 g carbs. Base of the meal.' },
+          { id: 'hj',  text: '2 tbsp honey or jam on the bagel',         detail: '~30 g carbs. Fructose for liver glycogen.' },
+          { id: 'ban', text: '1 banana, sliced',                         detail: '~25 g carbs.' },
+          { id: 'yog', text: '100 g Greek yoghurt',                      detail: '~5 g carbs. Protein + comfort.' },
+          { id: 'fj',  text: '250 ml fruit juice',                       detail: '~25 g carbs. Total meal target ~140 g.' },
+          { id: 'cof', text: 'Coffee with breakfast (not at start line)', detail: 'Do not take caffeine at the start — save it for the gels in the dark.' },
+        ],
+      },
+      {
+        id: 'vest', title: 'Vest Load — Before Leaving for the Start', icon: '🎽',
+        note: 'Fill flasks last so they are fresh. Check each pocket — nothing loose.',
+        items: [
+          { id: 'f1',  text: 'Carb Flask 1 filled — carb + electrolyte mix (500 ml, ~8%)', detail: '~30–40 g carbs per flask. Sip throughout each leg alongside solid food.' },
+          { id: 'f2',  text: 'Carb Flask 2 filled — carb + electrolyte mix (500 ml, ~8%)', detail: '~30–40 g carbs per flask. Both chest flasks carry carbs in this plan.' },
+          { id: 'bl',  text: 'Bladder filled — plain water + electrolyte tabs (1.5–2 L)',  detail: 'Bulk fluid. Gut safety net — switch to bladder-only if gut issues arise.' },
+          { id: 'fnt', text: 'Jelly babies, sweets, dates and bars in accessible front pockets', detail: 'You need to reach them while moving. Nothing buried.' },
+          { id: 'caf', text: 'Caffeine gels packed separately — NOT mixed with regular snacks', detail: 'Separate pouch. You do not want to grab one by mistake before Hr 14.' },
+          { id: 'cpv', text: 'Carb powder zip-locks in vest',                                detail: 'For topping up one carb flask mid-leg on the long AID 3 → Weymouth stretch.' },
+          { id: 'wl',  text: 'Warm layer packed (accessible from 70 km)',                    detail: 'Put it on at AID 5. Do not dig for it in the dark.' },
+          { id: 'ht',  text: 'Head torch charged and accessible',                            detail: 'On at Hr 14 (dusk, ~8 pm). Accessible — not buried at the bottom.' },
+        ],
+      },
+      {
+        id: 'prestart', title: 'Pre-Start — 30 Minutes Before Gun', icon: '⏱',
+        note: 'Short list. Stay calm. You have done the hard work.',
+        items: [
+          { id: 'ps1', text: 'Eat 1 banana (~25 g carbs)',                        detail: 'Final top-up. Easy on the gut.' },
+          { id: 'ps2', text: 'Sip from a carb flask',                             detail: 'Start hydrated. Do not arrive at the start line dry.' },
+          { id: 'ps3', text: 'Top up internally at the start table if available', detail: 'Extra cup of water or electrolyte. Do not rely solely on carry for the first leg.' },
+          { id: 'ps4', text: 'Confirm caffeine gels are in their separate pouch', detail: 'Not needed until Hr 14 — but know where they are from the start.' },
+          { id: 'ps5', text: 'Set watch — start timer at gun',                    detail: 'Hourly alerts help track fuelling blocks.' },
+        ],
+      },
+    ],
+  },
+
+  savoury: {
+    intro: 'Sweet foods stop being appealing somewhere around hour 6–8. The plan builds in savoury options to pre-empt this.',
+    items: [
+      { name: 'Biltong',                        when: 'Hr 14 (planned) + ad-hoc as palette reset',    detail: 'Planned alongside caffeine gel #1 at Hr 14. Feel free to add small amounts at other times — salt, protein, and a completely different flavour from everything else in your vest. Trial on your next two long runs — if it does not sit right, swap for extra Barebells + pretzels.' },
+      { name: 'Sandwich',                       when: 'AID 2 (25 km)',                               detail: 'Go with whatever you are craving between two slices of bread when you arrive. Trial on your next long run — if gut issues follow, switch to Squares Bar + crisps instead.' },
+      { name: 'Crisps, pretzels, tortilla chips', when: 'Aid stations — take whenever available',    detail: 'Salt + crunch + non-sweet. Especially effective in the back half. Never skip these at an aid station — take what is on offer.' },
+      { name: 'Broth or soup',                  when: 'Weymouth (58 km) and AID 6 (83 km)',          detail: 'Salty, warming. Settles the stomach when you grow tired of sweet foods. Both major hot stops should have broth available.' },
+    ],
+  },
+};
+
+// ─── SHARED UI ─────────────────────────────────────────────────────────────
+
+const mono = { fontFamily: "'DM Mono', monospace" };
+
+function SectionTitle({ children }) {
+  return (
+    <div style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.muted, marginBottom: 16 }}>
+      {children}
+    </div>
+  );
+}
+
+function Card({ children, style = {} }) {
+  return (
+    <div style={{ background: C.white, borderRadius: 6, border: `1px solid ${C.rule}`, overflow: 'hidden', ...style }}>
+      {children}
+    </div>
+  );
+}
+
+function CardHead({ children }) {
+  return (
+    <div style={{ padding: '12px 18px', borderBottom: `1px solid ${C.rule}`, fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: C.dark }}>
+      {children}
+    </div>
+  );
+}
+
+function Th({ children, style = {} }) {
+  return (
+    <th style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', color: C.muted, padding: '8px 14px', textAlign: 'left', background: C.bg, borderBottom: `1px solid ${C.rule}`, whiteSpace: 'nowrap', ...style }}>
+      {children}
+    </th>
+  );
+}
+
+function Td({ children, style = {} }) {
+  return (
+    <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, verticalAlign: 'top', fontSize: 13, lineHeight: 1.45, ...style }}>
+      {children}
+    </td>
+  );
+}
+
+function Pill({ children, color = C.blue, bg }) {
+  return (
+    <span style={{ display: 'inline-block', fontSize: 9.5, fontWeight: 700, padding: '2px 7px', borderRadius: 3, letterSpacing: '0.05em', background: bg || color, color: C.white }}>
+      {children}
+    </span>
+  );
+}
+
+function MetricTile({ label, value, sub }) {
+  return (
+    <div style={{ background: C.white, borderRadius: 6, border: `1px solid ${C.rule}`, padding: '14px 16px' }}>
+      <div style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.muted, marginBottom: 5 }}>{label}</div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: C.orange, ...mono, lineHeight: 1.1 }}>{value}</div>
+      {sub && <div style={{ fontSize: 11, color: C.muted, marginTop: 4 }}>{sub}</div>}
+    </div>
+  );
+}
+
+function Bullet({ children }) {
+  return (
+    <div style={{ display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.5, marginBottom: 7 }}>
+      <span style={{ color: C.blue, fontWeight: 700, flexShrink: 0 }}>—</span>
+      <span>{children}</span>
+    </div>
+  );
+}
+
+// ─── SECTIONS ──────────────────────────────────────────────────────────────
+
+function OverviewSection() {
+  const { keyNumbers, overviewPoints } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Overview &amp; Key Numbers</SectionTitle>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
+        {keyNumbers.map((n, i) => <MetricTile key={i} {...n} />)}
+      </div>
+      <Card>
+        <CardHead>Race Day Principles</CardHead>
+        <div style={{ padding: '14px 18px' }}>
+          {overviewPoints.map((p, i) => <Bullet key={i}>{p}</Bullet>)}
+        </div>
+      </Card>
+      <Card style={{ background: C.orangeTint, border: '1px solid #F9C4B5' }}>
+        <div style={{ padding: '14px 18px', fontSize: 13.5, lineHeight: 1.6 }}>
+          <strong style={{ color: C.orange }}>Contact:</strong> If anything in this plan has not been practised in training, get in touch before race day —{' '}
+          <a href="mailto:info@ultraendurancenutrition.com" style={{ color: C.blue }}>info@ultraendurancenutrition.com</a>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function CarbLoadingSection() {
+  const { carbLoading } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Carbohydrate Loading</SectionTitle>
+      <Card>
+        <div style={{ padding: '16px 18px', fontSize: 13.5, lineHeight: 1.65, color: C.muted, borderBottom: `1px solid ${C.rule}` }}>{carbLoading.intro}</div>
+        <div style={{ padding: '14px 18px', borderBottom: `1px solid ${C.rule}` }}>
+          <div style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.muted, marginBottom: 4 }}>Target</div>
+          <div style={{ fontSize: 16, fontWeight: 700, color: C.orange, ...mono }}>{carbLoading.target}</div>
+        </div>
+        <div style={{ padding: '16px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          {carbLoading.rules.map((r, i) => (
+            <div key={i} style={{ padding: '14px 16px', background: C.bg, borderRadius: 5 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: C.blue, marginBottom: 5 }}>{r.title}</div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.5, color: C.dark }}>{r.detail}</div>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function RaceMorningSection() {
+  const { breakfast } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Race Morning</SectionTitle>
+      <Card>
+        <CardHead>Pre-Race Breakfast — 4:00–4:30 am</CardHead>
+        <div style={{ padding: '14px 18px', borderBottom: `1px solid ${C.rule}`, fontSize: 13.5, color: C.muted, lineHeight: 1.6 }}>
+          {breakfast.intro} &nbsp;<strong style={{ color: C.dark }}>Target: {breakfast.target}</strong>
+        </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead><tr><Th>Food</Th><Th>Carbs</Th></tr></thead>
+          <tbody>
+            {breakfast.items.map((item, i) => (
+              <tr key={i}>
+                <Td>{item.food}</Td>
+                <Td style={{ ...mono, fontWeight: 600, fontSize: 13 }}>{item.carbs}</Td>
+              </tr>
+            ))}
+            <tr style={{ background: C.bg }}>
+              <Td style={{ fontWeight: 700 }}>Total</Td>
+              <Td style={{ ...mono, fontWeight: 700, color: C.orange, fontSize: 15, borderBottom: 'none' }}>{breakfast.total}</Td>
+            </tr>
+          </tbody>
+        </table>
+      </Card>
+      <Card style={{ background: C.blueTint, border: '1px solid #BDD8E8' }}>
+        <div style={{ padding: '14px 18px' }}>
+          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.blue, marginBottom: 6 }}>Fallback — if appetite is low</div>
+          <div style={{ fontSize: 13, lineHeight: 1.55 }}>{breakfast.fallback}</div>
+        </div>
+      </Card>
+      <Card>
+        <CardHead>Pre-Start Top-Up — 30–45 min before gun</CardHead>
+        <div style={{ padding: '14px 18px', fontSize: 13.5, lineHeight: 1.6 }}>{breakfast.preStart}</div>
+      </Card>
+    </div>
+  );
+}
+
+function TimelineSection() {
+  const { timeline } = PLAN;
+  const rowBg = (type) => {
+    if (type === 'hot')    return C.orangeTint;
+    if (type === 'aid')    return C.blueTint;
+    if (type === 'dark')   return '#F5F0FA';
+    if (type === 'start' || type === 'finish') return C.bg;
+    if (type === 'pre')    return '#F0FAF4';
+    return C.white;
+  };
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Fuelling Timeline</SectionTitle>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10, marginBottom: 4 }}>
+        {[['Total In-Race Carbs','~1,119 g'],['Average Carbs /hr','~66 g'],['Race Duration','~17 hrs']].map(([l,v]) => (
+          <div key={l} style={{ background: C.white, border: `1px solid ${C.rule}`, borderRadius: 5, padding: '12px 14px' }}>
+            <div style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.11em', textTransform: 'uppercase', color: C.muted, marginBottom: 4 }}>{l}</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: C.orange, ...mono }}>{v}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 11, alignItems: 'center' }}>
+        {[['Aid stop', C.blueTint, '#BDD8E8'], ['Hot meal stop', C.orangeTint, '#F9C4B5'], ['Dark hours', '#F5F0FA', '#D8CEF0']].map(([l, bg, border]) => (
+          <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+            <div style={{ width: 14, height: 14, borderRadius: 3, background: bg, border: `1px solid ${border}` }} />
+            <span style={{ color: C.muted }}>{l}</span>
+          </div>
+        ))}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+          <Pill bg="#6B4FBB">⚡ Caffeine</Pill>
+          <span style={{ color: C.muted }}>Caffeine gel</span>
+        </div>
+      </div>
+      <Card>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+            <thead>
+              <tr>
+                <Th>Time</Th>
+                <Th>Section</Th>
+                <Th style={{ minWidth: 280 }}>What to Have</Th>
+                <Th>Carbs (g)</Th>
+                <Th>Avg g/hr</Th>
+                <Th>Flags</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {timeline.map((row, i) => (
+                <tr key={i} style={{ background: rowBg(row.type) }}>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, ...mono, fontSize: 12, fontWeight: 600, whiteSpace: 'nowrap', color: C.dark }}>{row.time}</td>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, fontSize: 12.5, whiteSpace: 'nowrap' }}>
+                    <div style={{ fontWeight: row.aid ? 700 : 400 }}>{row.section}</div>
+                    {row.aid && <div style={{ marginTop: 3 }}><Pill bg={row.type === 'hot' ? C.orange : C.blue}>{row.aid}</Pill></div>}
+                  </td>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, fontSize: 12.5, lineHeight: 1.5, maxWidth: 320 }}>{row.what}</td>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, ...mono, fontWeight: 700, fontSize: 13, color: row.type === 'move' || row.type === 'dark' ? C.dark : C.orange }}>{row.carbs}</td>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}`, ...mono, fontSize: 12, color: C.muted }}>{row.avgGH}</td>
+                  <td style={{ padding: '9px 14px', borderBottom: `1px solid ${C.rule}` }}>
+                    <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                      {row.caffeine && <Pill bg="#6B4FBB">⚡ Gel {row.caffeine}</Pill>}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function AidStationsSection() {
+  const [active, setActive] = React.useState('aid1');
+  const { aidStations } = PLAN;
+  const selected = aidStations.find(a => a.id === active);
+  const typeColor = (t) => t === 'hot' ? C.orange : t === 'finish' ? '#2A9D5C' : C.blue;
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Aid Station Strategy</SectionTitle>
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+        {aidStations.map(a => (
+          <button key={a.id} onClick={() => setActive(a.id)} style={{
+            padding: '7px 14px', borderRadius: 5, border: `1px solid ${active === a.id ? typeColor(a.type) : C.rule}`,
+            background: active === a.id ? typeColor(a.type) : C.white,
+            color: active === a.id ? C.white : C.dark,
+            fontWeight: 600, fontSize: 12.5, cursor: 'pointer', fontFamily: 'inherit',
+            transition: 'all 0.15s',
+          }}>
+            {a.label} <span style={{ opacity: 0.7, fontWeight: 400 }}>{a.km} km</span>
+          </button>
+        ))}
+      </div>
+      {selected && (
+        <Card>
+          <div style={{ padding: '16px 20px', borderBottom: `1px solid ${C.rule}`, display: 'flex', gap: 16, alignItems: 'flex-start', justifyContent: 'space-between', background: typeColor(selected.type) + '18' }}>
+            <div>
+              <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 3 }}>{selected.label} — {selected.km} km</div>
+              <div style={{ fontSize: 13, color: C.muted }}>{selected.time} &nbsp;·&nbsp; Stop: <strong style={{ color: C.dark }}>{selected.stop}</strong></div>
+            </div>
+            <Pill bg={typeColor(selected.type)}>
+              {selected.type === 'hot' ? 'HOT MEAL' : selected.type === 'finish' ? 'FINISH' : selected.type === 'snack' ? 'QUICK STOP' : 'STOP'}
+            </Pill>
+          </div>
+          <div style={{ padding: '16px 20px', borderBottom: `1px solid ${C.rule}`, fontSize: 13.5, lineHeight: 1.65 }}>
+            {selected.action}
+          </div>
+          {selected.food.length > 0 && (
+            <div style={{ padding: '14px 20px' }}>
+              <div style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.muted, marginBottom: 10 }}>Food &amp; Drink at This Stop</div>
+              {selected.food.map((f, i) => <Bullet key={i}>{f}</Bullet>)}
+            </div>
+          )}
+        </Card>
+      )}
+      <Card>
+        <CardHead>General Rules — All Stops</CardHead>
+        <div style={{ padding: '14px 18px' }}>
+          {[
+            'Refill all three vessels (Flask 1, Flask 2, Bladder) at every stop.',
+            'Drink 1–2 extra cups at the stop itself before leaving.',
+            'Keep snack stops to 5 min max. Keep hot meal stops to 10–15 min.',
+            'Do not hang around — the longer you stop, the harder it is to start again.',
+          ].map((r, i) => <Bullet key={i}>{r}</Bullet>)}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function HydrationSection() {
+  const { hydration } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Hydration Plan</SectionTitle>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
+        {[['Total Fluid', hydration.total], ['Hourly Rate', hydration.rate], ['Sodium Target', hydration.sodium]].map(([l, v]) => (
+          <div key={l} style={{ background: C.white, border: `1px solid ${C.rule}`, borderRadius: 5, padding: '14px 16px' }}>
+            <div style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.11em', textTransform: 'uppercase', color: C.muted, marginBottom: 5 }}>{l}</div>
+            <div style={{ fontSize: 13.5, fontWeight: 700, color: C.blue, lineHeight: 1.3 }}>{v}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
+        {hydration.vessels.map((v, i) => (
+          <Card key={i}>
+            <div style={{ padding: '12px 16px', borderBottom: `1px solid ${C.rule}`, background: C.blueTint }}>
+              <Pill>{v.tag}</Pill>
+              <div style={{ fontSize: 15, fontWeight: 700, marginTop: 6, marginBottom: 2 }}>{v.name}</div>
+              <div style={{ fontSize: 11.5, color: C.muted }}>{v.capacity}</div>
+            </div>
+            <div style={{ padding: '12px 16px' }}>
+              <div style={{ fontSize: 12.5, fontWeight: 600, color: C.dark, marginBottom: 6 }}>{v.role}</div>
+              <div style={{ fontSize: 12, lineHeight: 1.55, color: C.muted }}>{v.detail}</div>
+            </div>
+          </Card>
+        ))}
+      </div>
+      <Card>
+        <CardHead>Hydration Rules</CardHead>
+        <div style={{ padding: '14px 18px' }}>
+          {hydration.rules.map((r, i) => <Bullet key={i}>{r}</Bullet>)}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function CaffeineSection() {
+  const { caffeine } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Caffeine Strategy</SectionTitle>
+      <Card style={{ background: '#F5F0FA', border: '1px solid #D8CEF0' }}>
+        <div style={{ padding: '14px 18px', fontSize: 13.5, lineHeight: 1.65 }}>{caffeine.intro}</div>
+      </Card>
+      <Card style={{ background: C.orangeTint, border: `1px solid #F9C4B5` }}>
+        <div style={{ padding: '13px 18px', display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.55 }}>
+          <span style={{ color: C.orange, fontWeight: 700, flexShrink: 0 }}>⚠</span>
+          {caffeine.warning}
+        </div>
+      </Card>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
+        {caffeine.gels.map((g, i) => (
+          <Card key={i}>
+            <div style={{ padding: '12px 16px', background: '#F5F0FA', borderBottom: `1px solid ${C.rule}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#6B4FBB', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: C.white, flexShrink: 0 }}>{g.num}</div>
+              <div>
+                <Pill bg="#6B4FBB">Caffeine Gel #{g.num}</Pill>
+                <div style={{ fontSize: 11, color: C.muted, marginTop: 3 }}>30 g carbs · 100 mg caffeine</div>
+              </div>
+            </div>
+            <div style={{ padding: '12px 16px' }}>
+              <div style={{ fontSize: 12.5, fontWeight: 600, marginBottom: 5 }}>{g.when}</div>
+              <div style={{ fontSize: 12, lineHeight: 1.5, color: C.muted }}>{g.why}</div>
+            </div>
+          </Card>
+        ))}
+      </div>
+      <Card>
+        <CardHead>Caffeine Rules</CardHead>
+        <div style={{ padding: '14px 18px' }}>
+          {caffeine.tips.map((t, i) => <Bullet key={i}>{t}</Bullet>)}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function ChecklistSection() {
+  const { checklist } = PLAN;
+  const storageKey = `fn-checklist-${PLAN.athlete.replace(/\s/g,'-')}`;
+
+  const [checked, setChecked] = React.useState(() => {
+    try { return JSON.parse(localStorage.getItem(storageKey) || '{}'); }
+    catch { return {}; }
+  });
+
+  const toggle = (id) => {
+    setChecked(prev => {
+      const next = { ...prev, [id]: !prev[id] };
+      try { localStorage.setItem(storageKey, JSON.stringify(next)); } catch {}
+      return next;
+    });
+  };
+
+  const resetAll = () => {
+    setChecked({});
+    try { localStorage.removeItem(storageKey); } catch {}
+  };
+
+  const totalItems = checklist.categories.reduce((s, c) => s + c.items.length, 0);
+  const totalDone  = Object.values(checked).filter(Boolean).length;
+  const pct = Math.round((totalDone / totalItems) * 100);
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <SectionTitle>Pre-Race Checklist</SectionTitle>
+        <button onClick={resetAll} style={{ fontSize: 11.5, color: C.muted, background: 'none', border: `1px solid ${C.rule}`, borderRadius: 4, padding: '4px 10px', cursor: 'pointer', fontFamily: 'inherit' }}>Reset all</button>
+      </div>
+      <Card>
+        <div style={{ padding: '14px 18px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 }}>
+            <div style={{ fontSize: 13, fontWeight: 600 }}>{totalDone} of {totalItems} items complete</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: pct === 100 ? '#2A9D5C' : C.blue, ...mono }}>{pct}%</div>
+          </div>
+          <div style={{ height: 6, background: C.rule, borderRadius: 3, overflow: 'hidden' }}>
+            <div style={{ height: '100%', width: `${pct}%`, background: pct === 100 ? '#2A9D5C' : C.blue, borderRadius: 3, transition: 'width 0.3s ease' }} />
+          </div>
+          {pct === 100 && (
+            <div style={{ marginTop: 10, fontSize: 13, color: '#2A9D5C', fontWeight: 600 }}>✓ All packed. You are ready to race.</div>
+          )}
+        </div>
+      </Card>
+      {checklist.categories.map(cat => {
+        const catDone = cat.items.filter(i => checked[i.id]).length;
+        return (
+          <Card key={cat.id}>
+            <div style={{ padding: '13px 18px', borderBottom: `1px solid ${C.rule}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.bg }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span style={{ fontSize: 16 }}>{cat.icon}</span>
+                <div>
+                  <div style={{ fontSize: 13.5, fontWeight: 700 }}>{cat.title}</div>
+                  <div style={{ fontSize: 11.5, color: C.muted, marginTop: 1 }}>{cat.note}</div>
+                </div>
+              </div>
+              <div style={{ fontSize: 11.5, fontWeight: 700, color: catDone === cat.items.length ? '#2A9D5C' : C.muted, ...mono, flexShrink: 0, marginLeft: 12 }}>
+                {catDone}/{cat.items.length}
+              </div>
+            </div>
+            <div style={{ padding: '10px 18px 14px', display: 'flex', flexDirection: 'column', gap: 1 }}>
+              {cat.items.map(item => {
+                const done = !!checked[item.id];
+                return (
+                  <div
+                    key={item.id}
+                    onClick={() => toggle(item.id)}
+                    style={{
+                      display: 'flex', alignItems: 'flex-start', gap: 12,
+                      padding: '9px 10px', borderRadius: 5, cursor: 'pointer',
+                      background: done ? '#F0FAF4' : 'transparent',
+                      transition: 'background 0.15s',
+                    }}
+                  >
+                    <div style={{
+                      width: 18, height: 18, borderRadius: 4, flexShrink: 0, marginTop: 2,
+                      border: `2px solid ${done ? '#2A9D5C' : C.rule}`,
+                      background: done ? '#2A9D5C' : C.white,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      transition: 'all 0.15s',
+                    }}>
+                      {done && (
+                        <svg width="10" height="8" viewBox="0 0 10 8">
+                          <polyline points="1,4 4,7 9,1" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 13.5, fontWeight: 500, color: done ? C.muted : C.dark, textDecoration: done ? 'line-through' : 'none', lineHeight: 1.4, transition: 'all 0.15s' }}>
+                        {item.text}
+                      </div>
+                      {!done && (
+                        <div style={{ fontSize: 12, color: C.muted, marginTop: 3, lineHeight: 1.4 }}>{item.detail}</div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        );
+      })}
+    </div>
+  );
+}
+
+function SavourySection() {
+  const { savoury } = PLAN;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <SectionTitle>Savoury Rotation &amp; Flavour Management</SectionTitle>
+      <Card>
+        <div style={{ padding: '14px 18px', fontSize: 13.5, lineHeight: 1.65, color: C.muted, borderBottom: `1px solid ${C.rule}` }}>{savoury.intro}</div>
+        <div style={{ padding: '14px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          {savoury.items.map((item, i) => (
+            <div key={i} style={{ padding: '14px 16px', background: C.bg, borderRadius: 5, border: `1px solid ${C.rule}` }}>
+              <div style={{ fontSize: 13.5, fontWeight: 700, marginBottom: 3 }}>{item.name}</div>
+              <div style={{ fontSize: 11, color: C.blue, fontWeight: 600, marginBottom: 7 }}>{item.when}</div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.5, color: C.muted }}>{item.detail}</div>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+// ─── RACE CARD ─────────────────────────────────────────────────────────────
+
+const CARD_ROWS = [
+  { phase: 'pre',    time: 'T−3hr',   label: 'Breakfast',           drink: null, food: [{ name: 'Bagel + honey/jam', g: 85 }, { name: 'Banana', g: 25 }, { name: 'Yoghurt + juice', g: 30 }], total: 140, flags: [] },
+  { phase: 'pre',    time: 'T−30min', label: 'Pre-Start',           drink: null, food: [{ name: 'Banana', g: 25 }], total: 25, flags: [] },
+  { phase: 'start',  time: '07:00',   label: 'START',               drink: null, food: [], total: null, flags: ['🏁 GO'] },
+  { phase: 'move',   time: '07–08',   label: 'Purbeck Way',         drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
+  { phase: 'aid',    time: '08–09',   label: 'Swanage →AID 1',     drink: 35,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 60, flags: ['AID 1 · 12.5km · REFILL'] },
+  { phase: 'move',   time: '09–10',   label: 'Coast',               drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
+  { phase: 'move',   time: '10–11',   label: 'Back to Corfe',       drink: 35,   food: [{ name: 'Dates + nut butter ×2', g: 35 }], total: 70, flags: [] },
+  { phase: 'aid',    time: '11–12',   label: 'Purbeck →AID 2',     drink: 35,   food: [{ name: '½ Sandwich', g: 17 }, { name: 'Pretzels', g: 18 }, { name: 'Jelly babies ×2', g: 10 }], total: 80, flags: ['AID 2 · 25km · 5–8min'] },
+  { phase: 'move',   time: '12–13',   label: 'Lulworth',            drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
+  { phase: 'aid',    time: '13–14',   label: 'Durdle Door →AID 3', drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: ['AID 3 · 37.5km · REFILL + ZIP-LOCK'] },
+  { phase: 'move',   time: '14–15',   label: 'Coast Path',          drink: 35,   food: [{ name: 'Barebells', g: 17 }, { name: 'Jelly sweets ×3', g: 15 }], total: 67, flags: [] },
+  { phase: 'move',   time: '15–16',   label: 'To Weymouth',         drink: 35,   food: [{ name: 'Squares Bar', g: 30 }], total: 65, flags: ['⚠ Longest leg — re-mix flask mid-leg'] },
+  { phase: 'hot',    time: '16–17',   label: 'Weymouth →AID 4',    drink: 35,   food: [{ name: 'Hot pasta/rice', g: 55 }, { name: 'Broth', g: 0 }], total: 90, flags: ['AID 4 · 58km · HOT MEAL · 10–15min'] },
+  { phase: 'move',   time: '17–18',   label: 'Out of Weymouth',     drink: 35,   food: [{ name: 'Jelly babies ×2', g: 10 }], total: 45, flags: ['Let meal settle'] },
+  { phase: 'move',   time: '18–19',   label: 'Chesil Beach',        drink: 35,   food: [{ name: 'Dates + nut butter ×2', g: 35 }], total: 70, flags: [] },
+  { phase: 'aid',    time: '19–20',   label: 'Chesil →AID 5',      drink: 35,   food: [{ name: 'Pretzels', g: 18 }, { name: 'Jelly babies ×3', g: 15 }], total: 68, flags: ['AID 5 · 70km · WARM LAYER ON'] },
+  { phase: 'dark',   time: '20–21',   label: 'Dusk · West Bay',     drink: 35,   food: [{ name: '⚡ Caffeine gel #1', g: 30 }, { name: 'Biltong', g: 0 }], total: 65, flags: ['HEAD TORCH ON'] },
+  { phase: 'hot',    time: '21–22',   label: 'West Bay →AID 6',    drink: 35,   food: [{ name: '⚡ Caffeine gel #2', g: 30 }, { name: '½ Sandwich', g: 12 }, { name: 'Broth', g: 0 }], total: 77, flags: ['AID 6 · 83km · BRUNCH · 8–10min'] },
+  { phase: 'dark',   time: '22–23',   label: 'Dark Path',           drink: 35,   food: [{ name: '⚡ Caffeine gel #3', g: 30 }, { name: 'Jelly babies ×3', g: 15 }], total: 80, flags: [] },
+  { phase: 'aid',    time: '23–00',   label: 'Final Push →AID 7',  drink: null, food: [{ name: 'Squares Bar', g: 30 }, { name: 'Jelly babies ×5', g: 25 }, { name: 'Pretzels', g: 10 }], total: 65, flags: ['AID 7 · 95km · BLADDER ONLY · NO CAFFEINE'] },
+  { phase: 'finish', time: '~00:00',  label: 'FINISH · Bridport',   drink: null, food: [], total: null, flags: ['🏅 JOB DONE'] },
+];
+
+const PHASE_COLORS = {
+  pre:    { bg: '#F0FAF4', border: '#A8DCBC', strip: '#2A9D5C', label: '#1A7A45' },
+  start:  { bg: C.blueTint, border: '#BDD8E8', strip: C.blue,   label: C.blue    },
+  move:   { bg: C.white,   border: C.rule,    strip: '#CBD5E0', label: C.muted   },
+  aid:    { bg: C.blueTint, border: '#BDD8E8', strip: C.blue,   label: C.blue    },
+  hot:    { bg: C.orangeTint, border: '#F9C4B5', strip: C.orange, label: C.orange },
+  dark:   { bg: '#F5F0FA', border: '#D8CEF0', strip: '#6B4FBB', label: '#6B4FBB' },
+  finish: { bg: '#F0FAF4', border: '#A8DCBC', strip: '#2A9D5C', label: '#1A7A45' },
+};
+
+function FoodPill({ item }) {
+  const isCaffeine = item.name.startsWith('⚡');
+  return (
+    <div style={{
+      display: 'inline-flex', alignItems: 'center', gap: 4,
+      background: isCaffeine ? '#F5F0FA' : C.bg,
+      border: `1px solid ${isCaffeine ? '#D8CEF0' : C.rule}`,
+      borderRadius: 4, padding: '2px 7px',
+      fontSize: 11.5, fontWeight: 500, lineHeight: 1.3,
+      color: isCaffeine ? '#6B4FBB' : C.dark,
+    }}>
+      <span>{item.name}</span>
+      {item.g > 0 && <span style={{ ...mono, fontWeight: 700, fontSize: 11, color: isCaffeine ? '#6B4FBB' : C.orange }}>{item.g}g</span>}
+    </div>
+  );
+}
+
+function RaceCardSection() {
+  const handlePrint = () => window.print();
+  return (
+    <div>
+      <style>{`
+        @media print {
+          body * { visibility: hidden !important; }
+          #race-card-print, #race-card-print * { visibility: visible !important; }
+          #race-card-print { position: fixed; top: 0; left: 0; width: 100%; }
+          @page { size: A4 portrait; margin: 10mm; }
+        }
+      `}</style>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+        <SectionTitle>Race Card — Print &amp; Carry</SectionTitle>
+        <button onClick={handlePrint} style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          background: C.blue, color: C.white, border: 'none',
+          borderRadius: 5, padding: '8px 16px', fontSize: 12.5, fontWeight: 600,
+          cursor: 'pointer', fontFamily: 'inherit',
+        }}>
+          ⎙ Print Race Card
+        </button>
+      </div>
+      <div id="race-card-print">
+        <div style={{
+          background: C.blue, borderRadius: '6px 6px 0 0',
+          padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div style={{ width: 38, height: 38, borderRadius: 7, background: C.white, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+              <img src="uploads/logo-1777130559848.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
+            </div>
+            <div>
+              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Fairbairn Nutrition</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: C.white }}>{PLAN.athlete}</div>
+            </div>
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: C.white }}>{PLAN.race}</div>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginTop: 1 }}>{PLAN.date} · {PLAN.distance}</div>
+          </div>
+        </div>
+        <div style={{ background: '#F9F8F6', border: `1px solid ${C.rule}`, borderTop: 'none', padding: '8px 20px', display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+          {[
+            ['Pre-race / Finish', '#2A9D5C'],
+            ['Moving', C.muted],
+            ['Aid stop', C.blue],
+            ['Hot meal', C.orange],
+            ['Dark hours', '#6B4FBB'],
+          ].map(([l, col]) => (
+            <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 10.5 }}>
+              <div style={{ width: 10, height: 10, borderRadius: 2, background: col }} />
+              <span style={{ color: C.muted }}>{l}</span>
+            </div>
+          ))}
+          <div style={{ marginLeft: 'auto', fontSize: 10.5, color: C.muted }}>
+            <span style={{ ...mono, fontWeight: 700, color: C.orange }}>35g</span> = carb flask · <span style={{ color: '#6B4FBB', fontWeight: 600 }}>⚡</span> = caffeine gel
+          </div>
+        </div>
+        <div style={{
+          display: 'grid', gridTemplateColumns: '72px 110px 1fr auto',
+          padding: '6px 20px', background: C.bg,
+          border: `1px solid ${C.rule}`, borderTop: 'none',
+          fontSize: 9, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: C.muted,
+          gap: 12,
+        }}>
+          <div>Time</div>
+          <div>Section</div>
+          <div>Eat &amp; Drink</div>
+          <div style={{ textAlign: 'right' }}>Total carbs</div>
+        </div>
+        <div style={{ border: `1px solid ${C.rule}`, borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
+          {CARD_ROWS.map((row, i) => {
+            const pc = PHASE_COLORS[row.phase];
+            const isSpecial = row.phase === 'start' || row.phase === 'finish';
+            return (
+              <div key={i} style={{
+                display: 'grid', gridTemplateColumns: '72px 110px 1fr auto',
+                alignItems: 'center', gap: 12,
+                background: pc.bg,
+                borderLeft: `4px solid ${pc.strip}`,
+                borderBottom: i < CARD_ROWS.length - 1 ? `1px solid ${pc.border}` : 'none',
+                padding: isSpecial ? '10px 16px' : '7px 16px',
+                minHeight: isSpecial ? 44 : 38,
+              }}>
+                <div style={{ ...mono, fontSize: isSpecial ? 13 : 11.5, fontWeight: 700, color: pc.label, lineHeight: 1.2 }}>{row.time}</div>
+                <div style={{ fontSize: isSpecial ? 13 : 11.5, fontWeight: isSpecial ? 700 : 500, color: pc.label, lineHeight: 1.2 }}>{row.label}</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
+                  {row.drink && (
+                    <div style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 4,
+                      background: C.blueTint, border: `1px solid #BDD8E8`,
+                      borderRadius: 4, padding: '2px 7px', fontSize: 11.5, fontWeight: 500,
+                    }}>
+                      <span style={{ color: C.muted }}>💧 Flask</span>
+                      <span style={{ ...mono, fontWeight: 700, fontSize: 11, color: C.blue }}>{row.drink}g</span>
+                    </div>
+                  )}
+                  {row.food.map((f, fi) => <FoodPill key={fi} item={f} />)}
+                  {row.flags.map((flag, fi) => {
+                    const isHot  = flag.includes('HOT');
+                    const isAid  = flag.includes('AID');
+                    const isCaf  = flag.includes('CAFFEINE') || flag.includes('HEAD');
+                    const isWarn = flag.includes('⚠') || flag.toLowerCase().includes('longest');
+                    const bgCol  = isHot ? C.orange : isAid ? C.blue : isCaf ? '#6B4FBB' : isWarn ? '#B45309' : C.dark;
+                    return (
+                      <span key={fi} style={{
+                        display: 'inline-block', fontSize: 9.5, fontWeight: 700,
+                        padding: '2px 6px', borderRadius: 3, letterSpacing: '0.04em',
+                        background: bgCol, color: C.white,
+                      }}>{flag}</span>
+                    );
+                  })}
+                </div>
+                <div style={{ textAlign: 'right', ...mono, fontSize: row.total ? 14 : 12, fontWeight: 700, color: row.total ? C.orange : C.muted, whiteSpace: 'nowrap' }}>
+                  {row.total ? `${row.total}g` : '—'}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 4px' }}>
+          <div style={{ fontSize: 10.5, color: C.muted }}>
+            In-race total: <strong style={{ color: C.dark, ...mono }}>~1,122g carbs</strong> · avg <strong style={{ color: C.dark, ...mono }}>~66g/hr</strong>
+          </div>
+          <div style={{ fontSize: 10.5, color: C.muted }}>Fairbairn Nutrition · info@ultraendurancenutrition.com</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── APP ───────────────────────────────────────────────────────────────────
+
+const NAV = [
+  { id: 'overview',  label: 'Overview',     icon: '◎' },
+  { id: 'checklist', label: 'Checklist',    icon: '✓' },
+  { id: 'carbload',  label: 'Carb Loading', icon: '⬡' },
+  { id: 'morning',   label: 'Race Morning', icon: '☀' },
+  { id: 'timeline',  label: 'Timeline',     icon: '▶' },
+  { id: 'aid',       label: 'Aid Stations', icon: '◈' },
+  { id: 'hydration', label: 'Hydration',    icon: '◇' },
+  { id: 'caffeine',  label: 'Caffeine',     icon: '⚡' },
+  { id: 'savoury',   label: 'Savoury Plan', icon: '◉' },
+  { id: 'racecard',  label: 'Race Card',    icon: '⬒' },
+];
+
+function App() {
+  const [section, setSection] = React.useState('overview');
+
+  return (
+    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', background: C.bg }}>
+
+      {/* Header */}
+      <div style={{ background: C.blue, height: 70, flexShrink: 0, padding: '0 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div style={{ width: 50, height: 50, borderRadius: 9, background: C.white, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, overflow: 'hidden' }}>
+            <img src="uploads/logo-1777130559848.png" alt="Fairbairn Nutrition" style={{ width: 44, height: 44, objectFit: 'contain' }} />
+          </div>
+          <div>
+            <div style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 3 }}>Fairbairn Nutrition · Race Day Guide</div>
+            <div style={{ fontSize: 20, fontWeight: 700, color: C.white, lineHeight: 1 }}>{PLAN.athlete}</div>
+          </div>
+        </div>
+        <div style={{ textAlign: 'right' }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: C.white }}>{PLAN.race}</div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', marginTop: 2 }}>{PLAN.distance} · {PLAN.route} · {PLAN.date}</div>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+
+        {/* Left Rail */}
+        <div style={{ width: 196, flexShrink: 0, background: C.white, borderRight: `1px solid ${C.rule}`, display: 'flex', flexDirection: 'column', paddingTop: 20, overflowY: 'auto' }}>
+          <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.muted, padding: '0 18px', marginBottom: 6 }}>Plan Sections</div>
+          {NAV.map(nav => (
+            <button key={nav.id} onClick={() => setSection(nav.id)} style={{
+              display: 'flex', alignItems: 'center', gap: 9,
+              padding: '10px 18px',
+              background: section === nav.id ? C.blueTint : 'transparent',
+              border: 'none', borderLeft: `3px solid ${section === nav.id ? C.blue : 'transparent'}`,
+              cursor: 'pointer', textAlign: 'left', width: '100%', transition: 'all 0.12s', fontFamily: 'inherit',
+            }}>
+              <span style={{ fontSize: 11, color: section === nav.id ? C.blue : C.muted, width: 14, textAlign: 'center', flexShrink: 0 }}>{nav.icon}</span>
+              <span style={{ fontSize: 12.5, fontWeight: section === nav.id ? 600 : 400, color: section === nav.id ? C.blue : C.dark }}>{nav.label}</span>
+            </button>
+          ))}
+
+          {/* Aid station quick links */}
+          <div style={{ marginTop: 18, borderTop: `1px solid ${C.rule}`, paddingTop: 16 }}>
+            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: C.muted, padding: '0 18px', marginBottom: 6 }}>Aid Stations</div>
+            {PLAN.aidStations.map(a => (
+              <button key={a.id} onClick={() => setSection('aid')} style={{
+                display: 'flex', alignItems: 'center', gap: 9,
+                padding: '7px 18px', background: 'transparent', border: 'none',
+                borderLeft: '3px solid transparent', cursor: 'pointer', textAlign: 'left', width: '100%', fontFamily: 'inherit',
+              }}>
+                <div style={{ width: 7, height: 7, borderRadius: '50%', flexShrink: 0, background: a.type === 'hot' ? C.orange : a.type === 'finish' ? '#2A9D5C' : C.rule }} />
+                <div>
+                  <div style={{ fontSize: 11.5, fontWeight: 500, color: C.dark }}>{a.label}</div>
+                  <div style={{ fontSize: 10, color: C.muted, ...mono }}>{a.km} km · {a.time}</div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Main content */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '26px 30px' }}>
+          {section === 'overview'  && <OverviewSection />}
+          {section === 'checklist' && <ChecklistSection />}
+          {section === 'carbload'  && <CarbLoadingSection />}
+          {section === 'morning'   && <RaceMorningSection />}
+          {section === 'timeline'  && <TimelineSection />}
+          {section === 'aid'       && <AidStationsSection />}
+          {section === 'hydration' && <HydrationSection />}
+          {section === 'caffeine'  && <CaffeineSection />}
+          {section === 'savoury'   && <SavourySection />}
+          {section === 'racecard'  && <RaceCardSection />}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
