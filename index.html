@@ -47,21 +47,21 @@ const PLAN = {
   targetFinish: '16–18 hours',
 
   keyNumbers: [
-    { label: 'Carb Target',          value: '60–70 g/hr',    sub: 'avg ~66 g/hr across race' },
-    { label: 'Total In-Race Carbs',  value: '~1,122 g',      sub: '17 hours of running' },
-    { label: 'Fluid Target',         value: '900–950 ml/hr', sub: '3 vessels: 2 carb flasks + bladder' },
-    { label: 'Total Fluid',          value: '~15 L',         sub: 'across full race' },
-    { label: 'Sodium Target',        value: '450–500 mg/hr', sub: '~500 mg/L in carb flasks' },
-    { label: 'Caffeine (late)',       value: '300 mg total',  sub: '3 × 100 mg gels, Hrs 14–16 only' },
+    { label: 'Carb Target',         value: '60–70 g/hr',    sub: 'avg ~64 g/hr across race' },
+    { label: 'Total In-Race Carbs', value: '~1,085 g',      sub: '17 hours · ~1,115 g with optional gel' },
+    { label: 'Fluid Target',        value: '900–950 ml/hr', sub: '2 × Lucozade Sport flasks + bladder' },
+    { label: 'Total Fluid',         value: '~15 L',         sub: 'across full race' },
+    { label: 'Sodium Target',       value: '450–500 mg/hr', sub: 'Lucozade Sport ~460mg/L + salty food' },
+    { label: 'Caffeine',            value: '200–300 mg',    sub: '2 confirmed + 1 optional, all before 9pm' },
   ],
 
   overviewPoints: [
     'Nothing new on race day — every product in this plan has been practised in training.',
-    'Carb target is 60–70 g/hr. Front half slightly higher; back half slightly lower as appetite drops.',
-    'Mix of Squares Bars, jelly babies, dates, Barebells and aid station food — rotated to prevent flavour fatigue.',
+    'Carb target is 60–70 g/hr. Drink is Lucozade Sport — 32g/flask for the first two hours, 26g/flask for most of the race.',
+    'Mix of Squares Bars, jelly babies, dates, biltong and aid station food — rotated to prevent flavour fatigue.',
     'Aid stations are roughly every 12.5 km. Major stops at 25 km, 58 km (Weymouth), 83 km and finish.',
-    'Three caffeine gels in the dark hours (Hrs 14, 15 and 16). Trial them on your next two long runs.',
-    'Carry more than you need — one extra Squares Bar, one extra protein bar and a reserve bag of jelly babies.',
+    'Caffeine gels at Hrs 11, 13 and optionally 14 — front-loaded doses to carry you through the second half. Trial them on your next two long runs.',
+    'Carry more than you need — one extra Squares Bar and a reserve bag of jelly babies.',
   ],
 
   carbLoading: {
@@ -86,78 +86,80 @@ const PLAN = {
       { food: '250 ml fruit juice',                 carbs: '~25 g' },
     ],
     total:    '~140 g',
-    fallback: 'If appetite is low, blend: banana + yoghurt + honey + milk + a scoop of carb powder. Liquid breakfasts work — this is the planned fallback.',
-    preStart: '30–45 min before start: 1 banana (~25 g carbs) + sips of electrolyte drink. Coffee with breakfast, not at the start line.',
+    fallback: 'If appetite is low, blend: banana + yoghurt + honey + milk. Liquid breakfasts work — this is the planned fallback.',
+    preStart: '30–45 min before start: 1 banana (~25 g carbs) + sips of Lucozade Sport. Coffee with breakfast, not at the start line.',
   },
 
   timeline: [
-    { time: 'T − 3 hr',    section: 'Pre-Race Breakfast',       what: 'Full breakfast (see Race Morning)',                                                                                    carbs: '~140', avgGH: '—',  type: 'pre'   },
-    { time: 'T − 30 min',  section: 'Pre-Start',                 what: '1 banana + sips of electrolyte drink',                                                                               carbs: '~25',  avgGH: '—',  type: 'pre'   },
-    { time: '7:00 am',     section: 'START – Corfe Castle',      what: '—',                                                                                                                  carbs: '—',    avgGH: '—',  type: 'start' },
-    { time: '7–8 am',      section: 'Hr 1 – Purbeck Way',        what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '55', type: 'move'  },
-    { time: '8–9 am',      section: 'Hr 2 – Towards Swanage',    what: 'Drink 35 g + 5 jelly babies (25 g). AID 1: refill both carb flasks and bladder. Top up at the table. Skip food.',   carbs: '60',   avgGH: '58', type: 'aid',  aid: 'AID 1 · 12.5 km', aidNote: 'Refill only. Skip food. 3 min.' },
-    { time: '9–10 am',     section: 'Hr 3 – Coast',              what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '57', type: 'move'  },
-    { time: '10–11 am',    section: 'Hr 4 – Back Towards Corfe', what: 'Drink 35 g + 2 dates with nut butter (35 g)',                                                                        carbs: '70',   avgGH: '60', type: 'move'  },
-    { time: '11 am–12 pm', section: 'Hr 5 – Purbeck Ridge',      what: 'Drink 35 g. AID 2: half sandwich (17 g) + handful pretzels (18 g) + 2 jelly babies on the go (10 g). Refill flasks and bladder. 5–8 min.', carbs: '80', avgGH: '64', type: 'aid', aid: 'AID 2 · 25 km ★', aidNote: '5–8 min. Half sandwich + pretzels. Refill all.' },
-    { time: '12–1 pm',     section: 'Hr 6 – Towards Lulworth',   what: 'Drink 35 g + 4 jelly babies (20 g)',                                                                                 carbs: '55',   avgGH: '63', type: 'move'  },
-    { time: '1–2 pm',      section: 'Hr 7 – Durdle Door',        what: 'Drink 35 g + 4 jelly babies (20 g). Refill carb flasks and bladder. Top up at the table. 5 min.',                   carbs: '55',   avgGH: '61', type: 'aid',  aid: 'AID 3 · 37.5 km', aidNote: 'Refill all. 5 min.' },
-    { time: '2–3 pm',      section: 'Hr 8 – Coast Path',         what: 'Drink 35 g + 1 Barebells (17 g) + 3 jelly sweets (15 g)',                                                            carbs: '67',   avgGH: '62', type: 'move'  },
-    { time: '3–4 pm',      section: 'Hr 9 – Towards Weymouth',   what: 'Drink 35 g + 1 Squares Bar (30 g). Note: AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs).',                  carbs: '65',   avgGH: '62', type: 'move'  },
-    { time: '4–5 pm',      section: 'Hr 10 – Into Weymouth',     what: 'Drink 35 g. AID 4: hot pasta/rice/potatoes (~55 g) + broth. Refill everything, restock pockets. 10–15 min.',        carbs: '90',   avgGH: '65', type: 'hot',  aid: 'AID 4 · 58 km 🍲 HOT MEAL', aidNote: 'Full stop 10–15 min. Hot carbs + broth. Full restock.' },
-    { time: '5–6 pm',      section: 'Hr 11 – Out of Weymouth',   what: 'Drink 35 g + 2 jelly babies (10 g). Let meal settle. Drink steadily.',                                               carbs: '45',   avgGH: '63', type: 'move'  },
-    { time: '6–7 pm',      section: 'Hr 12 – Chesil Beach',      what: 'Drink 35 g + 2 dates with nut butter (35 g)',                                                                        carbs: '70',   avgGH: '64', type: 'move'  },
-    { time: '7–8 pm',      section: 'Hr 13 – Along Chesil',      what: 'Drink 35 g. AID 5: handful pretzels (18 g) + 3 jelly babies (15 g). Refill flasks and bladder. Warm layer on. 5 min.', carbs: '68', avgGH: '64', type: 'aid', aid: 'AID 5 · 70 km', aidNote: 'Refill all. Warm layer on. 5 min.' },
-    { time: '8–9 pm',      section: 'Hr 14 – Dusk to West Bay',  what: 'Drink 35 g + Caffeine gel #1 (30 g, 100 mg caffeine) + biltong alongside. Head torch on.',                          carbs: '65',   avgGH: '64', type: 'dark', caffeine: 1 },
-    { time: '9–10 pm',     section: 'Hr 15 – West Bay',          what: 'Drink 35 g. AID 6: Caffeine gel #2 (30 g, 100 mg caffeine) + half sandwich (12 g) + broth. Refill. 8–10 min.',     carbs: '77',   avgGH: '65', type: 'hot',  aid: 'AID 6 · 83 km 🍲 BRUNCH', aidNote: '8–10 min. Hot food + broth. Caffeine gel #2.', caffeine: 2 },
-    { time: '10–11 pm',    section: 'Hr 16 – Dark Coastal Path', what: 'Drink 35 g + Caffeine gel #3 (30 g, 100 mg caffeine) + 3 jelly babies (15 g)',                                       carbs: '80',   avgGH: '66', type: 'dark', caffeine: 3 },
-    { time: '11 pm–12 am', section: 'Hr 17 – Final Push',        what: 'AID 7: water top-up only (switch to bladder). 1 Squares Bar (30 g) + 5 jelly babies (25 g) + pretzels from AID 7 (10 g). No caffeine this hour.', carbs: '65', avgGH: '66', type: 'aid', aid: 'AID 7 · 95 km', aidNote: 'Switch to bladder. Water top-up only. Quick in and out.' },
-    { time: '~Midnight',   section: 'FINISH – Bridport',         what: 'Cooked meal.',                                                                                                       carbs: '—',    avgGH: '—',  type: 'finish' },
+    { time: 'T − 3 hr',    section: 'Pre-Race Breakfast',       what: 'Full breakfast (see Race Morning)',                                                                                                      carbs: '~140', avgGH: '—',  type: 'pre'   },
+    { time: 'T − 30 min',  section: 'Pre-Start',                 what: '1 banana + sips of Lucozade Sport',                                                                                                    carbs: '~25',  avgGH: '—',  type: 'pre'   },
+    { time: '7:00 am',     section: 'START – Corfe Castle',      what: '—',                                                                                                                                    carbs: '—',    avgGH: '—',  type: 'start' },
+    { time: '7–8 am',      section: 'Hr 1 – Purbeck Way',        what: 'Lucozade Sport (32 g) + 5 jelly babies (25 g)',                                                                                        carbs: '57',   avgGH: '57', type: 'move'  },
+    { time: '8–9 am',      section: 'Hr 2 – Towards Swanage',    what: 'Lucozade Sport (32 g) + 6 jelly babies (30 g). At AID 1: refill both flasks and bladder. Top up at the table. Skip food.',            carbs: '62',   avgGH: '60', type: 'aid',  aid: 'AID 1 · 12.5 km', aidNote: 'Refill only. Skip food. 3 min.' },
+    { time: '9–10 am',     section: 'Hr 3 – Coast',              what: 'Lucozade Sport (26 g) + 5 jelly babies (25 g)',                                                                                        carbs: '51',   avgGH: '57', type: 'move'  },
+    { time: '10–11 am',    section: 'Hr 4 – Back Towards Corfe', what: 'Lucozade Sport (26 g) + 2 dates with nut butter (35 g) + 1 jelly baby (5 g)',                                                          carbs: '66',   avgGH: '59', type: 'move'  },
+    { time: '11 am–12 pm', section: 'Hr 5 – Purbeck Ridge',      what: 'Lucozade Sport (26 g). At AID 2: half sandwich (17 g) + pretzels (18 g) + 3 jelly babies (15 g). Refill flasks and bladder. 5–8 min.', carbs: '76',   avgGH: '62', type: 'aid',  aid: 'AID 2 · 25 km ★', aidNote: '5–8 min. Half sandwich + pretzels. Refill all.' },
+    { time: '12–1 pm',     section: 'Hr 6 – Towards Lulworth',   what: 'Lucozade Sport (26 g) + 5 jelly babies (25 g)',                                                                                        carbs: '51',   avgGH: '61', type: 'move'  },
+    { time: '1–2 pm',      section: 'Hr 7 – Durdle Door',        what: 'Lucozade Sport (26 g) + 5 jelly babies (25 g). Refill flasks and bladder. Top up at the table. 5 min.',                               carbs: '51',   avgGH: '59', type: 'aid',  aid: 'AID 3 · 37.5 km', aidNote: 'Refill all. 5 min.' },
+    { time: '2–3 pm',      section: 'Hr 8 – Coast Path',         what: 'Lucozade Sport (18 g, longest-leg rate) + biltong (small handful) + SquareBar (30 g) + jelly sweets (20 g). Food increased to compensate for lower drink rate on the AID 3 → Weymouth leg (~3.5 h).', carbs: '69', avgGH: '60', type: 'move'  },
+    { time: '3–4 pm',      section: 'Hr 9 – Towards Weymouth',   what: 'Lucozade Sport (18 g) + SquareBar (30 g) + 3 jelly babies (15 g). Longest leg (~20 km, ~3.5 h) — both flasks should be empty on arrival at Weymouth.', carbs: '63', avgGH: '61', type: 'move'  },
+    { time: '4–5 pm',      section: 'Hr 10 – Into Weymouth',     what: 'Lucozade Sport (26 g). At AID 4: large portion of pasta, rice or potatoes (65 g) + broth. Refill everything, restock pockets. 10–15 min.', carbs: '91', avgGH: '64', type: 'hot',  aid: 'AID 4 · 58 km 🍲 HOT MEAL', aidNote: 'Full stop 10–15 min. Hot carbs + broth. Full restock. Take caffeine gel #1 as you leave.' },
+    { time: '5–6 pm',      section: 'Hr 11 – Out of Weymouth',   what: 'Lucozade Sport (26 g) + caffeine gel #1 (30 g, 100 mg caffeine) + 2 jelly babies (10 g). Take the gel as you leave Weymouth.', carbs: '66', avgGH: '64', type: 'move', caffeine: 1 },
+    { time: '6–7 pm',      section: 'Hr 12 – Chesil Beach',      what: 'Lucozade Sport (26 g) + 2 dates with nut butter (35 g) + 2 jelly babies (10 g)',                                                       carbs: '71',   avgGH: '64', type: 'move'  },
+    { time: '7–8 pm',      section: 'Hr 13 – Along Chesil',      what: 'Lucozade Sport (26 g). At AID 5: caffeine gel #2 (30 g, 100 mg caffeine) + pretzels (18 g). Refill flasks and bladder. Warm layer on. 5 min.', carbs: '74', avgGH: '65', type: 'aid', aid: 'AID 5 · 70 km', aidNote: 'Take caffeine gel #2 here. Refill all. Warm layer on. 5 min.', caffeine: 2 },
+    { time: '8–9 pm',      section: 'Hr 14 – Dusk to West Bay',  what: 'Lucozade Sport (26 g) + biltong + jelly sweets (25 g) + 2 jelly babies (10 g). Head torch on. Caffeine gel #3 optional — take it only if alertness is dropping (adds 30 g carbs, 100 mg caffeine).', carbs: '62 (92 with gel)', avgGH: '65', type: 'dark' },
+    { time: '9–10 pm',     section: 'Hr 15 – West Bay',          what: 'Lucozade Sport (26 g). At AID 6: hot food (15 g) + half sandwich (12 g) + broth. Refill flasks and bladder. 8–10 min.',               carbs: '58',   avgGH: '65', type: 'hot',  aid: 'AID 6 · 83 km 🍲 BRUNCH', aidNote: '8–10 min. Hot food + broth. Refill all.' },
+    { time: '10–11 pm',    section: 'Hr 16 – Dark Coastal Path', what: 'Lucozade Sport (26 g) + jelly babies (25 g) + biltong',                                                                                  carbs: '52',   avgGH: '64', type: 'dark'  },
+    { time: '11 pm–12 am', section: 'Hr 17 – Final Push',        what: 'At AID 7: switch to bladder (water only). SquareBar (30 g) + 5 jelly babies (25 g) + pretzels from AID 7 (10 g). No caffeine this hour.', carbs: '65', avgGH: '64', type: 'aid',  aid: 'AID 7 · 95 km', aidNote: 'Switch to bladder. Water top-up only. Quick in and out.' },
+    { time: '~Midnight',   section: 'FINISH – Bridport',         what: 'Cooked meal, medal, well done.',                                                                                                         carbs: '—',    avgGH: '—',  type: 'finish' },
   ],
 
   aidStations: [
-    { id: 'aid1', label: 'AID 1',  km: 12.5, time: '~9 am',     type: 'snack',  stop: '3 min',     action: 'Refill both carb flasks and bladder. Top up at the table. Skip food — nothing needed here.', food: [] },
-    { id: 'aid2', label: 'AID 2',  km: 25,   time: '~11:30 am', type: 'stop',   stop: '5–8 min',   action: 'Half sandwich + handful of pretzels at the stop. Refill both carb flasks and bladder. Drink an extra cup. 2 jelly babies on the move.', food: ['Half sandwich (17 g carbs)', 'Handful pretzels (18 g carbs)', '2 jelly babies on the go (10 g)'] },
-    { id: 'aid3', label: 'AID 3',  km: 37.5, time: '~2 pm',     type: 'snack',  stop: '5 min',     action: 'Refill both carb flasks and bladder. Top up at the table. 5 min — this starts the longest leg (~20 km to Weymouth). Use a zip-lock to top up one carb flask at around the 2-hour mark mid-leg.', food: [] },
-    { id: 'aid4', label: 'AID 4',  km: 58,   time: '~5 pm',     type: 'hot',    stop: '10–15 min', action: 'Hot carbs (pasta, rice or potatoes). Broth if offered. Full refill of both carb flasks and bladder. Drink two cups at the table. Restock pockets from vest reserve.', food: ['Hot pasta / rice / potatoes (~55 g carbs)', 'Broth (sodium + warmth)'] },
-    { id: 'aid5', label: 'AID 5',  km: 70,   time: '~7:30 pm',  type: 'snack',  stop: '5 min',     action: 'Refill both carb flasks and bladder. Grab pretzels for salt. Put warm layer on. 5 min.', food: ['Pretzels (18 g carbs)', '3 jelly babies (15 g)'] },
-    { id: 'aid6', label: 'AID 6',  km: 83,   time: '~9:30 pm',  type: 'hot',    stop: '8–10 min',  action: 'Hot food if appetite holds. Broth for warmth. Half sandwich. Caffeine gel #2 here. Head torch on if not already.', food: ['Caffeine gel #2 — 100 mg caffeine + 30 g carbs', 'Half sandwich (12 g carbs)', 'Broth'] },
-    { id: 'aid7', label: 'AID 7',  km: 95,   time: '~11 pm',    type: 'snack',  stop: 'Quick',     action: 'Switch to bladder — water top-up only, no carb flask refill needed. Squares Bar + jelly babies + pretzels from the table. No caffeine this final hour.', food: ['1 Squares Bar (30 g carbs)', '5 jelly babies (25 g carbs)', 'Pretzels (10 g carbs)'] },
+    { id: 'aid1', label: 'AID 1',  km: 12.5, time: '~9 am',     type: 'snack',  stop: '3 min',     action: 'Refill both Lucozade Sport flasks and bladder. Top up at the table. Skip food — nothing needed here.', food: [] },
+    { id: 'aid2', label: 'AID 2',  km: 25,   time: '~11:30 am', type: 'stop',   stop: '5–8 min',   action: 'Half sandwich + handful of pretzels at the stop. Refill both Lucozade Sport flasks and bladder. Drink an extra cup. 3 jelly babies on the move.', food: ['Half sandwich (17 g carbs)', 'Pretzels (18 g carbs)', '3 jelly babies on the go (15 g)'] },
+    { id: 'aid3', label: 'AID 3',  km: 37.5, time: '~2 pm',     type: 'snack',  stop: '5 min',     action: 'Refill both Lucozade Sport flasks and bladder. Top up at the table. 5 min — this starts the longest leg (~20 km to Weymouth, ~3.5 hrs). Both flasks will be nearly empty on arrival at Weymouth — that is expected.', food: [] },
+    { id: 'aid4', label: 'AID 4',  km: 58,   time: '~5 pm',     type: 'hot',    stop: '10–15 min', action: 'Large portion of hot carbs (pasta, rice or potatoes). Broth if offered. Full refill of both Lucozade Sport flasks and bladder. Drink two cups at the table. Restock pockets from vest reserve. Take caffeine gel #1 as you leave.', food: ['Hot pasta / rice / potatoes (~65 g carbs)', 'Broth (sodium + warmth)', 'Caffeine gel #1 on the way out'] },
+    { id: 'aid5', label: 'AID 5',  km: 70,   time: '~7:30 pm',  type: 'snack',  stop: '5 min',     action: 'Take caffeine gel #2 here. Refill both Lucozade Sport flasks and bladder. Grab pretzels for salt. Put warm layer on. 5 min.', food: ['Caffeine gel #2 — 100 mg caffeine + 30 g carbs', 'Pretzels (18 g carbs)'] },
+    { id: 'aid6', label: 'AID 6',  km: 83,   time: '~9:30 pm',  type: 'hot',    stop: '8–10 min',  action: 'Hot food if appetite holds. Broth for warmth. Half sandwich. Head torch on if not already. Refill flasks and bladder.', food: ['Hot food (~15 g carbs)', 'Half sandwich (12 g carbs)', 'Broth'] },
+    { id: 'aid7', label: 'AID 7',  km: 95,   time: '~11 pm',    type: 'snack',  stop: 'Quick',     action: 'Switch to bladder — water top-up only, no Lucozade flask refill needed. SquareBar + jelly babies + pretzels from the table. No caffeine this final hour.', food: ['1 SquareBar (30 g carbs)', '5 jelly babies (25 g carbs)', 'Pretzels (10 g carbs)'] },
     { id: 'fin',  label: 'Finish', km: 100,  time: '~Midnight', type: 'finish', stop: '—',         action: 'Sit down. Eat the cooked meal. Celebrate.', food: ['Cooked meal'] },
   ],
 
   hydration: {
     total:  '~15 L across the race',
     rate:   '900–950 ml/hr target across all three vessels',
-    sodium: '~500 mg/L in carb flasks · 450–500 mg/hr overall',
+    sodium: '~460 mg/L from Lucozade Sport · salty food covers the gap to 500 mg/hr',
     vessels: [
-      { name: 'Carb Flask 1', capacity: '500 ml (chest)', role: 'Carb + electrolyte mix', detail: '~30–40 g carbs per flask at ~8% concentration. Sip throughout each leg. Refill at every aid station. Carry zip-lock carb powder to re-mix mid-leg on the AID 3 → Weymouth stretch (~20 km, ~3.5 hrs).', tag: 'Carb flask' },
-      { name: 'Carb Flask 2', capacity: '500 ml (chest)', role: 'Carb + electrolyte mix', detail: '~30–40 g carbs per flask at ~8% concentration. Sip from both chest flasks throughout each leg. Combined, these deliver your hourly carb target in fluid alongside your solid food.', tag: 'Carb flask' },
-      { name: 'Bladder',      capacity: '1.5–2 L (back)', role: 'Plain water + electrolyte tabs', detail: 'Makes up the balance of your fluid to hit 900–950 ml/hr total. If anything feels off digestively, stop the carb flasks and drink from the bladder only until things settle. Switch to bladder-only in the final hour (Hr 17).', tag: 'Water / backup' },
+      { name: 'Lucozade Flask 1', capacity: '500 ml (chest)', role: 'Lucozade Sport — carb + sodium', detail: 'Both 500ml chest flasks carry Lucozade Sport (6.4% concentration, 32g carbs per flask). Sip from both throughout each leg. Delivers 32g/h on Hours 1–2, 26g/h on most legs, and 18g/h on the long AID 3 → Weymouth stretch — food portions are increased in those hours to compensate.', tag: 'Lucozade Sport' },
+      { name: 'Lucozade Flask 2', capacity: '500 ml (chest)', role: 'Lucozade Sport — carb + sodium', detail: 'Both 500ml chest flasks carry Lucozade Sport (6.4% concentration, 32g carbs per flask). Sip from both throughout each leg. The bladder carries plain water with electrolyte tabs for the balance of your fluid intake and as a GI safety net — if your stomach feels off, switch to the bladder and stop the Lucozade flasks until it settles.', tag: 'Lucozade Sport' },
+      { name: 'Bladder',          capacity: '1.5–2 L (back)', role: 'Plain water + electrolyte tabs', detail: 'The bladder carries plain water with electrolyte tabs for the balance of your fluid intake and as a GI safety net — if your stomach feels off, switch to the bladder and stop the Lucozade flasks until it settles. Switch to bladder-only in the final hour (Hr 17).', tag: 'Water / backup' },
     ],
     rules: [
-      'Refill both carb flasks and the bladder at every aid station.',
+      'Refill both Lucozade Sport flasks and the bladder at every aid station.',
       'Drink 1–2 extra cups at each stop before leaving — do not rely on carry alone.',
-      'Sodium target: ~500 mg/L in carb flasks. Around 450–500 mg/hr overall.',
-      'Salty foods (biltong, pretzels, crisps, broth) supplement sodium without loading the gut.',
-      'AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs) — use a zip-lock to top up one carb flask at the 2-hour mark mid-leg.',
-      'If gut issues strike: stop carb flasks, switch to bladder only, let things settle for an hour before reintroducing.',
+      'Lucozade Sport provides ~460mg sodium/L — close to the 500mg/L target. Biltong, pretzels and broth across the race cover the small gap. No additional electrolyte tabs needed in the flasks.',
+      'AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs) — the Lucozade flasks are designed to be nearly empty on arrival. That is expected.',
+      'If gut issues strike: stop the Lucozade flasks, switch to bladder only, let things settle for an hour before reintroducing.',
       'Let thirst guide fine-tuning in the back half. Overdrinking is a bigger risk than underdrinking on a mild day.',
     ],
   },
 
   caffeine: {
-    intro:   'Three Precision Fuel and Hydration caffeine gels spread across the dark hours. Each gel = 30 g carbs + 100 mg caffeine, roughly 90 minutes apart. Total: 300 mg caffeine — just under your 3 mg/kg ceiling. No caffeine in the final hour (Hr 17).',
-    warning: 'You have not used these in training yet. Trial them on your next two long runs and let me know how you get on. If they do not agree with you, drop them and we will work out an alternative caffeine source before race day.',
+    intro:       'Gel 1 goes in at around 5pm leaving Weymouth, to counter the post-meal energy dip that hits most athletes after a big hot stop at the halfway point. Gel 2 is at the AID5 stop at around 7pm as the light begins to fade. Gel 3 is optional between 8 and 9pm — by then you will have two active doses in your system, so only take it if you feel alertness or energy dropping. No caffeine after 9pm.',
+    doseSummary: 'Total caffeine 200–300mg depending on whether you take the optional third gel — within your 3mg/kg limit either way.',
+    purchaseUrl: 'https://www.precisionhydration.com/products/pf-30-caffeine-gel/',
+    discountCode: 'CS-Military',
+    warning:     'You have not used these in training yet. Trial them on your next two long runs and let me know how you get on. If they do not agree with you, drop them and we will work out an alternative caffeine source before race day.',
     gels: [
-      { num: 1, when: 'Hr 14 — ~8 pm (approaching West Bay)',   why: 'First lift as the head torch goes on and the course quietens down. Kicks in as you go fully dark.' },
-      { num: 2, when: 'AID 6 — 83 km (~9:30 pm)',              why: 'Second lift at the last major stop, alongside food and broth. Head torch on if not already.' },
-      { num: 3, when: 'Hr 16 — ~10:30 pm (dark coastal path)', why: 'Final lift for the last push before Bridport. No caffeine after this — final hour is caffeine-free.' },
+      { num: 1, when: 'Hr 11 — ~5pm (leaving Weymouth after AID 4)',   why: 'Counters the post-meal energy dip that hits most athletes after a big hot stop at the halfway point. Kicks in as you settle into the second half.' },
+      { num: 2, when: 'AID 5 — 70km (~7pm)',                           why: 'Second dose as the light begins to fade. Take it at the AID 5 stop.' },
+      { num: 3, when: 'Hr 14 — 8–9pm (optional)',                      why: 'By then you will have two active doses in your system. Only take it if you feel alertness or energy dropping.', optional: true },
     ],
     tips: [
-      'Do not take all three at once — space them ~90 minutes apart as planned.',
+      'Caffeine goes in at ~5pm leaving Weymouth, ~7pm at AID5, and optionally between 8 and 9pm. Everything is dosed before 9pm. The final hour to midnight runs on momentum and what is already in your system.',
       'Each gel also contributes 30 g of carbs — count these in your hourly total.',
-      'Feel free to use on an ad-hoc basis depending on how you feel — just factor in the 30 g carbs each time.',
-      'No caffeine in Hr 17 (final hour) — last gel goes in at ~10:30 pm.',
+      'Gel 3 is optional — only take it if alertness or energy is dropping between 8 and 9pm.',
+      'No caffeine after 9pm.',
     ],
   },
 
@@ -167,16 +169,15 @@ const PLAN = {
         id: 'night', title: 'Night Before — Pack Your Vest', icon: '🌙',
         note: 'Do this the evening before. Lay everything out, count it, then pack it.',
         items: [
-          { id: 'sq',  text: '2× Squares Bar (+ 1 reserve)',                          detail: 'Hrs 9 and 17 on the timeline. Spare in case of spillage.' },
-          { id: 'bb',  text: '2× Barebells protein bar (+ 1 reserve)',               detail: 'Hrs 8 and 14. Different texture from the Squares Bars.' },
-          { id: 'cg',  text: '3× PF&H caffeine gel — 100 mg caffeine / 30 g carbs', detail: 'Hr 14 (~8 pm), AID 6 (83 km, ~9:30 pm), Hr 16 (~10:30 pm). Keep separate — dark hours only.' },
-          { id: 'jb',  text: '~35 jelly babies (approx. 2 standard bags)',           detail: 'Used across Hrs 1, 2, 3, 5, 6, 7, 11, 13, 16 and 17. Carry a reserve handful.' },
-          { id: 'js',  text: '~6 jelly sweets',                                      detail: 'Hr 8 — variety from jelly babies.' },
+          { id: 'sq',  text: '3× SquareBar (+ 1 reserve)',                            detail: 'Hrs 8, 9 and 17 on the timeline. Spare in case of spillage.' },
+          { id: 'bb',  text: 'Extra handful of jelly babies (reserve)',               detail: 'Backup for any hour where food is going well or to replace dropped items.' },
+          { id: 'cg',  text: '3× PF&H caffeine gel — 100 mg caffeine / 30 g carbs', detail: 'Gel #1 leaving Weymouth (~5pm, Hr 11), Gel #2 at AID5 (~7pm, Hr 13), Gel #3 optional 8–9pm (Hr 14). Keep separate from regular snacks.' },
+          { id: 'jb',  text: '~50 jelly babies (approx. 3 standard bags)',           detail: 'Used across Hrs 1, 2, 3, 4, 5, 6, 7, 9, 11, 12, 14, 16 and 17. Carry a reserve handful.' },
+          { id: 'js',  text: '~15 jelly sweets',                                     detail: 'Hr 8 (~20g) and Hr 14 (~25g) — variety from jelly babies, different texture and flavour.' },
           { id: 'dt',  text: '4× dates with nut butter (pre-portioned in zip-lock)', detail: 'Hrs 4 and 12. Pre-portion so they are easy to grab while moving.' },
-          { id: 'bi',  text: 'Biltong — 1 small handful + extra for ad-hoc use',    detail: 'Planned at Hr 14. Use at other times as a palette reset. Salt + protein.' },
-          { id: 'cp',  text: '2–3 zip-locks of carb powder',                         detail: 'For topping up one carb flask mid-leg on the AID 3 → Weymouth stretch (~3.5 hrs).' },
-          { id: 'et',  text: '10+ electrolyte tabs',                                 detail: 'For bladder refills throughout the race.' },
-          { id: 'xb',  text: 'Reserve nutrition packed (in vest or accessible)',      detail: '1 extra Squares Bar, 1 extra protein bar, reserve bag of jelly babies.' },
+          { id: 'bi',  text: 'Biltong — 2 small handfuls + extra for ad-hoc use',   detail: 'Planned at Hrs 8 and 14. Use at other times as a palette reset. Salt + protein.' },
+          { id: 'et',  text: '10+ electrolyte tabs',                                 detail: 'For bladder refills throughout the race. Lucozade Sport covers sodium from the flasks.' },
+          { id: 'xb',  text: 'Reserve nutrition packed (in vest or accessible)',      detail: '1 extra SquareBar, reserve bag of jelly babies.' },
         ],
       },
       {
@@ -195,14 +196,13 @@ const PLAN = {
         id: 'vest', title: 'Vest Load — Before Leaving for the Start', icon: '🎽',
         note: 'Fill flasks last so they are fresh. Check each pocket — nothing loose.',
         items: [
-          { id: 'f1',  text: 'Carb Flask 1 filled — carb + electrolyte mix (500 ml, ~8%)', detail: '~30–40 g carbs per flask. Sip throughout each leg alongside solid food.' },
-          { id: 'f2',  text: 'Carb Flask 2 filled — carb + electrolyte mix (500 ml, ~8%)', detail: '~30–40 g carbs per flask. Both chest flasks carry carbs in this plan.' },
-          { id: 'bl',  text: 'Bladder filled — plain water + electrolyte tabs (1.5–2 L)',  detail: 'Bulk fluid. Gut safety net — switch to bladder-only if gut issues arise.' },
+          { id: 'f1',  text: 'Flask 1 filled with Lucozade Sport (500 ml)',                   detail: '32 g carbs per flask at 6.4% concentration. Sip throughout each leg alongside solid food.' },
+          { id: 'f2',  text: 'Flask 2 filled with Lucozade Sport (500 ml)',                   detail: '32 g carbs per flask. Both chest flasks carry Lucozade Sport in this plan.' },
+          { id: 'bl',  text: 'Bladder filled — plain water + electrolyte tabs (1.5–2 L)',      detail: 'Bulk fluid. Gut safety net — switch to bladder-only if gut issues arise.' },
           { id: 'fnt', text: 'Jelly babies, sweets, dates and bars in accessible front pockets', detail: 'You need to reach them while moving. Nothing buried.' },
-          { id: 'caf', text: 'Caffeine gels packed separately — NOT mixed with regular snacks', detail: 'Separate pouch. You do not want to grab one by mistake before Hr 14.' },
-          { id: 'cpv', text: 'Carb powder zip-locks in vest',                                detail: 'For topping up one carb flask mid-leg on the long AID 3 → Weymouth stretch.' },
-          { id: 'wl',  text: 'Warm layer packed (accessible from 70 km)',                    detail: 'Put it on at AID 5. Do not dig for it in the dark.' },
-          { id: 'ht',  text: 'Head torch charged and accessible',                            detail: 'On at Hr 14 (dusk, ~8 pm). Accessible — not buried at the bottom.' },
+          { id: 'caf', text: 'Caffeine gels packed separately — NOT mixed with regular snacks', detail: 'Separate pouch. Not needed until Hr 11 (leaving Weymouth, ~5pm) — but know where they are from the start.' },
+          { id: 'wl',  text: 'Warm layer packed (accessible from 70 km)',                      detail: 'Put it on at AID 5. Do not dig for it in the dark.' },
+          { id: 'ht',  text: 'Head torch charged and accessible',                              detail: 'On at Hr 14 (dusk, ~8 pm). Accessible — not buried at the bottom.' },
         ],
       },
       {
@@ -210,9 +210,9 @@ const PLAN = {
         note: 'Short list. Stay calm. You have done the hard work.',
         items: [
           { id: 'ps1', text: 'Eat 1 banana (~25 g carbs)',                        detail: 'Final top-up. Easy on the gut.' },
-          { id: 'ps2', text: 'Sip from a carb flask',                             detail: 'Start hydrated. Do not arrive at the start line dry.' },
+          { id: 'ps2', text: 'Sip from a Lucozade Sport flask',                    detail: 'Start hydrated. Do not arrive at the start line dry.' },
           { id: 'ps3', text: 'Top up internally at the start table if available', detail: 'Extra cup of water or electrolyte. Do not rely solely on carry for the first leg.' },
-          { id: 'ps4', text: 'Confirm caffeine gels are in their separate pouch', detail: 'Not needed until Hr 14 — but know where they are from the start.' },
+          { id: 'ps4', text: 'Confirm caffeine gels are in their separate pouch', detail: 'Not needed until Hr 11 (leaving Weymouth, ~5pm) — but know where they are from the start.' },
           { id: 'ps5', text: 'Set watch — start timer at gun',                    detail: 'Hourly alerts help track fuelling blocks.' },
         ],
       },
@@ -222,7 +222,7 @@ const PLAN = {
   savoury: {
     intro: 'Sweet foods stop being appealing somewhere around hour 6–8. The plan builds in savoury options to pre-empt this.',
     items: [
-      { name: 'Biltong',                        when: 'Hr 14 (planned) + ad-hoc as palette reset',    detail: 'Planned alongside caffeine gel #1 at Hr 14. Feel free to add small amounts at other times — salt, protein, and a completely different flavour from everything else in your vest. Trial on your next two long runs — if it does not sit right, swap for extra Barebells + pretzels.' },
+      { name: 'Biltong',                        when: 'Hr 8 and Hr 14 (planned) + ad-hoc as palette reset', detail: 'Planned at Hr 8 and Hr 14. Feel free to add small amounts at other times — salt, protein, and a completely different flavour from everything else in your vest. Trial on your next two long runs — if it does not sit right, swap for extra jelly babies and pretzels from the aid stations.' },
       { name: 'Sandwich',                       when: 'AID 2 (25 km)',                               detail: 'Go with whatever you are craving between two slices of bread when you arrive. Trial on your next long run — if gut issues follow, switch to Squares Bar + crisps instead.' },
       { name: 'Crisps, pretzels, tortilla chips', when: 'Aid stations — take whenever available',    detail: 'Salt + crunch + non-sweet. Especially effective in the back half. Never skip these at an aid station — take what is on offer.' },
       { name: 'Broth or soup',                  when: 'Weymouth (58 km) and AID 6 (83 km)',          detail: 'Salty, warming. Settles the stomach when you grow tired of sweet foods. Both major hot stops should have broth available.' },
@@ -405,12 +405,15 @@ function TimelineSection() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
       <SectionTitle>Fuelling Timeline</SectionTitle>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10, marginBottom: 4 }}>
-        {[['Total In-Race Carbs','~1,119 g'],['Average Carbs /hr','~66 g'],['Race Duration','~17 hrs']].map(([l,v]) => (
+        {[['Total In-Race Carbs','~1,085 g'],['Average Carbs /hr','~64 g/h'],['Race Duration','~17 hrs']].map(([l,v]) => (
           <div key={l} style={{ background: C.white, border: `1px solid ${C.rule}`, borderRadius: 5, padding: '12px 14px' }}>
             <div style={{ fontSize: 9.5, fontWeight: 600, letterSpacing: '0.11em', textTransform: 'uppercase', color: C.muted, marginBottom: 4 }}>{l}</div>
             <div style={{ fontSize: 20, fontWeight: 700, color: C.orange, ...mono }}>{v}</div>
           </div>
         ))}
+      </div>
+      <div style={{ background: C.blueTint, border: `1px solid #BDD8E8`, borderRadius: 5, padding: '10px 14px', fontSize: 12, lineHeight: 1.6, color: C.dark }}>
+        Each hour shows the Lucozade Sport drink contribution plus solid food. Drink contributes 32 g/h on the first two hours, 26 g/h on most legs, and 18 g/h on the long Weymouth leg — food portions are increased in those hours to compensate. Total comes to approximately 1,085 g across 17 hours, averaging 64 g/h (66 g/h if the optional third caffeine gel is taken), within the 60–70 g/h target.
       </div>
       <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 11, alignItems: 'center' }}>
         {[['Aid stop', C.blueTint, '#BDD8E8'], ['Hot meal stop', C.orangeTint, '#F9C4B5'], ['Dark hours', '#F5F0FA', '#D8CEF0']].map(([l, bg, border]) => (
@@ -567,6 +570,13 @@ function CaffeineSection() {
       <SectionTitle>Caffeine Strategy</SectionTitle>
       <Card style={{ background: '#F5F0FA', border: '1px solid #D8CEF0' }}>
         <div style={{ padding: '14px 18px', fontSize: 13.5, lineHeight: 1.65 }}>{caffeine.intro}</div>
+        <div style={{ padding: '10px 18px 14px', borderTop: `1px solid #D8CEF0`, fontSize: 12.5, color: '#6B4FBB', fontWeight: 600 }}>{caffeine.doseSummary}</div>
+      </Card>
+      <Card style={{ background: C.blueTint, border: '1px solid #BDD8E8' }}>
+        <div style={{ padding: '13px 18px', fontSize: 13, lineHeight: 1.55 }}>
+          Order here: <a href={caffeine.purchaseUrl} target="_blank" rel="noopener noreferrer" style={{ color: C.blue }}>{caffeine.purchaseUrl}</a>
+          {' '}— use discount code <strong style={{ background: '#FFF9C4', padding: '1px 5px', borderRadius: 3, color: '#7A5800' }}>{caffeine.discountCode}</strong> at checkout.
+        </div>
       </Card>
       <Card style={{ background: C.orangeTint, border: `1px solid #F9C4B5` }}>
         <div style={{ padding: '13px 18px', display: 'flex', gap: 10, fontSize: 13, lineHeight: 1.55 }}>
@@ -577,10 +587,10 @@ function CaffeineSection() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 12 }}>
         {caffeine.gels.map((g, i) => (
           <Card key={i}>
-            <div style={{ padding: '12px 16px', background: '#F5F0FA', borderBottom: `1px solid ${C.rule}`, display: 'flex', alignItems: 'center', gap: 8 }}>
-              <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#6B4FBB', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: C.white, flexShrink: 0 }}>{g.num}</div>
+            <div style={{ padding: '12px 16px', background: g.optional ? '#FFF9F0' : '#F5F0FA', borderBottom: `1px solid ${C.rule}`, display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ width: 28, height: 28, borderRadius: '50%', background: g.optional ? '#B45309' : '#6B4FBB', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, color: C.white, flexShrink: 0 }}>{g.num}</div>
               <div>
-                <Pill bg="#6B4FBB">Caffeine Gel #{g.num}</Pill>
+                <Pill bg={g.optional ? '#B45309' : '#6B4FBB'}>{g.optional ? 'Optional Gel #3' : `Caffeine Gel #${g.num}`}</Pill>
                 <div style={{ fontSize: 11, color: C.muted, marginTop: 3 }}>30 g carbs · 100 mg caffeine</div>
               </div>
             </div>
@@ -736,23 +746,23 @@ const CARD_ROWS = [
   { phase: 'pre',    time: 'T−3hr',   label: 'Breakfast',           drink: null, food: [{ name: 'Bagel + honey/jam', g: 85 }, { name: 'Banana', g: 25 }, { name: 'Yoghurt + juice', g: 30 }], total: 140, flags: [] },
   { phase: 'pre',    time: 'T−30min', label: 'Pre-Start',           drink: null, food: [{ name: 'Banana', g: 25 }], total: 25, flags: [] },
   { phase: 'start',  time: '07:00',   label: 'START',               drink: null, food: [], total: null, flags: ['🏁 GO'] },
-  { phase: 'move',   time: '07–08',   label: 'Purbeck Way',         drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
-  { phase: 'aid',    time: '08–09',   label: 'Swanage →AID 1',     drink: 35,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 60, flags: ['AID 1 · 12.5km · REFILL'] },
-  { phase: 'move',   time: '09–10',   label: 'Coast',               drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
-  { phase: 'move',   time: '10–11',   label: 'Back to Corfe',       drink: 35,   food: [{ name: 'Dates + nut butter ×2', g: 35 }], total: 70, flags: [] },
-  { phase: 'aid',    time: '11–12',   label: 'Purbeck →AID 2',     drink: 35,   food: [{ name: '½ Sandwich', g: 17 }, { name: 'Pretzels', g: 18 }, { name: 'Jelly babies ×2', g: 10 }], total: 80, flags: ['AID 2 · 25km · 5–8min'] },
-  { phase: 'move',   time: '12–13',   label: 'Lulworth',            drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: [] },
-  { phase: 'aid',    time: '13–14',   label: 'Durdle Door →AID 3', drink: 35,   food: [{ name: 'Jelly babies ×4', g: 20 }], total: 55, flags: ['AID 3 · 37.5km · REFILL + ZIP-LOCK'] },
-  { phase: 'move',   time: '14–15',   label: 'Coast Path',          drink: 35,   food: [{ name: 'Barebells', g: 17 }, { name: 'Jelly sweets ×3', g: 15 }], total: 67, flags: [] },
-  { phase: 'move',   time: '15–16',   label: 'To Weymouth',         drink: 35,   food: [{ name: 'Squares Bar', g: 30 }], total: 65, flags: ['⚠ Longest leg — re-mix flask mid-leg'] },
-  { phase: 'hot',    time: '16–17',   label: 'Weymouth →AID 4',    drink: 35,   food: [{ name: 'Hot pasta/rice', g: 55 }, { name: 'Broth', g: 0 }], total: 90, flags: ['AID 4 · 58km · HOT MEAL · 10–15min'] },
-  { phase: 'move',   time: '17–18',   label: 'Out of Weymouth',     drink: 35,   food: [{ name: 'Jelly babies ×2', g: 10 }], total: 45, flags: ['Let meal settle'] },
-  { phase: 'move',   time: '18–19',   label: 'Chesil Beach',        drink: 35,   food: [{ name: 'Dates + nut butter ×2', g: 35 }], total: 70, flags: [] },
-  { phase: 'aid',    time: '19–20',   label: 'Chesil →AID 5',      drink: 35,   food: [{ name: 'Pretzels', g: 18 }, { name: 'Jelly babies ×3', g: 15 }], total: 68, flags: ['AID 5 · 70km · WARM LAYER ON'] },
-  { phase: 'dark',   time: '20–21',   label: 'Dusk · West Bay',     drink: 35,   food: [{ name: '⚡ Caffeine gel #1', g: 30 }, { name: 'Biltong', g: 0 }], total: 65, flags: ['HEAD TORCH ON'] },
-  { phase: 'hot',    time: '21–22',   label: 'West Bay →AID 6',    drink: 35,   food: [{ name: '⚡ Caffeine gel #2', g: 30 }, { name: '½ Sandwich', g: 12 }, { name: 'Broth', g: 0 }], total: 77, flags: ['AID 6 · 83km · BRUNCH · 8–10min'] },
-  { phase: 'dark',   time: '22–23',   label: 'Dark Path',           drink: 35,   food: [{ name: '⚡ Caffeine gel #3', g: 30 }, { name: 'Jelly babies ×3', g: 15 }], total: 80, flags: [] },
-  { phase: 'aid',    time: '23–00',   label: 'Final Push →AID 7',  drink: null, food: [{ name: 'Squares Bar', g: 30 }, { name: 'Jelly babies ×5', g: 25 }, { name: 'Pretzels', g: 10 }], total: 65, flags: ['AID 7 · 95km · BLADDER ONLY · NO CAFFEINE'] },
+  { phase: 'move',   time: '07–08',   label: 'Purbeck Way',         drink: 32,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 57, flags: [] },
+  { phase: 'aid',    time: '08–09',   label: 'Swanage →AID 1',     drink: 32,   food: [{ name: 'Jelly babies ×6', g: 30 }], total: 62, flags: ['AID 1 · 12.5km · REFILL'] },
+  { phase: 'move',   time: '09–10',   label: 'Coast',               drink: 26,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 51, flags: [] },
+  { phase: 'move',   time: '10–11',   label: 'Back to Corfe',       drink: 26,   food: [{ name: 'Dates + nut butter ×2', g: 35 }, { name: 'Jelly baby', g: 5 }], total: 66, flags: [] },
+  { phase: 'aid',    time: '11–12',   label: 'Purbeck →AID 2',     drink: 26,   food: [{ name: '½ Sandwich', g: 17 }, { name: 'Pretzels', g: 18 }, { name: 'Jelly babies ×3', g: 15 }], total: 76, flags: ['AID 2 · 25km · 5–8min'] },
+  { phase: 'move',   time: '12–13',   label: 'Lulworth',            drink: 26,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 51, flags: [] },
+  { phase: 'aid',    time: '13–14',   label: 'Durdle Door →AID 3', drink: 26,   food: [{ name: 'Jelly babies ×5', g: 25 }], total: 51, flags: ['AID 3 · 37.5km · REFILL'] },
+  { phase: 'move',   time: '14–15',   label: 'Coast Path',          drink: 18,   food: [{ name: 'Biltong', g: 1 }, { name: 'SquareBar', g: 30 }, { name: 'Jelly sweets', g: 20 }], total: 69, flags: ['⚠ Longest leg — flasks empty on arrival'] },
+  { phase: 'move',   time: '15–16',   label: 'To Weymouth',         drink: 18,   food: [{ name: 'SquareBar', g: 30 }, { name: 'Jelly babies ×3', g: 15 }], total: 63, flags: ['Longest leg (~20km, ~3.5h)'] },
+  { phase: 'hot',    time: '16–17',   label: 'Weymouth →AID 4',    drink: 26,   food: [{ name: 'Hot pasta/rice', g: 65 }, { name: 'Broth', g: 0 }], total: 91, flags: ['AID 4 · 58km · HOT MEAL · 10–15min'] },
+  { phase: 'move',   time: '17–18',   label: 'Out of Weymouth',     drink: 26,   food: [{ name: '⚡ Caffeine gel #1', g: 30 }, { name: 'Jelly babies ×2', g: 10 }], total: 66, flags: ['CAFFEINE GEL #1 LEAVING WEYMOUTH'] },
+  { phase: 'move',   time: '18–19',   label: 'Chesil Beach',        drink: 26,   food: [{ name: 'Dates + nut butter ×2', g: 35 }, { name: 'Jelly babies ×2', g: 10 }], total: 71, flags: [] },
+  { phase: 'aid',    time: '19–20',   label: 'Chesil →AID 5',      drink: 26,   food: [{ name: '⚡ Caffeine gel #2', g: 30 }, { name: 'Pretzels', g: 18 }], total: 74, flags: ['AID 5 · 70km · CAFFEINE GEL #2 · WARM LAYER ON'] },
+  { phase: 'dark',   time: '20–21',   label: 'Dusk · West Bay',     drink: 26,   food: [{ name: 'Biltong', g: 1 }, { name: 'Jelly sweets', g: 25 }, { name: 'Jelly babies ×2', g: 10 }], total: 62, flags: ['HEAD TORCH ON', '⚡ GEL #3 OPTIONAL (+30g)'] },
+  { phase: 'hot',    time: '21–22',   label: 'West Bay →AID 6',    drink: 26,   food: [{ name: 'Hot food', g: 15 }, { name: '½ Sandwich', g: 12 }, { name: 'Broth', g: 0 }], total: 58, flags: ['AID 6 · 83km · BRUNCH · 8–10min'] },
+  { phase: 'dark',   time: '22–23',   label: 'Dark Path',           drink: 26,   food: [{ name: 'Jelly babies ×5', g: 25 }, { name: 'Biltong', g: 1 }], total: 52, flags: [] },
+  { phase: 'aid',    time: '23–00',   label: 'Final Push →AID 7',  drink: null, food: [{ name: 'SquareBar', g: 30 }, { name: 'Jelly babies ×5', g: 25 }, { name: 'Pretzels', g: 10 }], total: 65, flags: ['AID 7 · 95km · BLADDER ONLY · NO CAFFEINE'] },
   { phase: 'finish', time: '~00:00',  label: 'FINISH · Bridport',   drink: null, food: [], total: null, flags: ['🏅 JOB DONE'] },
 ];
 
@@ -839,7 +849,7 @@ function RaceCardSection() {
             </div>
           ))}
           <div style={{ marginLeft: 'auto', fontSize: 10.5, color: C.muted }}>
-            <span style={{ ...mono, fontWeight: 700, color: C.orange }}>35g</span> = carb flask · <span style={{ color: '#6B4FBB', fontWeight: 600 }}>⚡</span> = caffeine gel
+            <span style={{ ...mono, fontWeight: 700, color: C.orange }}>32g/26g</span> = Lucozade Sport · <span style={{ color: '#6B4FBB', fontWeight: 600 }}>⚡</span> = caffeine gel
           </div>
         </div>
         <div style={{
@@ -877,7 +887,7 @@ function RaceCardSection() {
                       background: C.blueTint, border: `1px solid #BDD8E8`,
                       borderRadius: 4, padding: '2px 7px', fontSize: 11.5, fontWeight: 500,
                     }}>
-                      <span style={{ color: C.muted }}>💧 Flask</span>
+                      <span style={{ color: C.muted }}>💧 Lucozade</span>
                       <span style={{ ...mono, fontWeight: 700, fontSize: 11, color: C.blue }}>{row.drink}g</span>
                     </div>
                   )}
@@ -906,7 +916,7 @@ function RaceCardSection() {
         </div>
         <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 4px' }}>
           <div style={{ fontSize: 10.5, color: C.muted }}>
-            In-race total: <strong style={{ color: C.dark, ...mono }}>~1,122g carbs</strong> · avg <strong style={{ color: C.dark, ...mono }}>~66g/hr</strong>
+            In-race total: <strong style={{ color: C.dark, ...mono }}>~1,085g carbs</strong> · avg <strong style={{ color: C.dark, ...mono }}>~64g/hr</strong>
           </div>
           <div style={{ fontSize: 10.5, color: C.muted }}>Fairbairn Nutrition · info@ultraendurancenutrition.com</div>
         </div>
