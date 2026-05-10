@@ -127,20 +127,22 @@ const PLAN = {
 
   hydration: {
     total:  '~15 L across the race',
-    rate:   '900–950 ml/hr target across all three vessels',
-    sodium: '~460 mg/L from Lucozade Sport · salty food covers the gap to 500 mg/hr',
+    rate:   '900–950 ml/hr all-in target (carry + cups drunk at each aid station stop)',
+    sodium: '~460 mg/L from Lucozade Sport in the flasks · PH500 tabs in the bladder cover the balance',
     vessels: [
       { name: 'Lucozade Flask 1', capacity: '500 ml (chest)', role: 'Lucozade Sport — carb + sodium', detail: 'Both 500ml chest flasks carry Lucozade Sport (6.4% concentration, 32g carbs per flask). Sip from both throughout each leg. Delivers 32g/h on Hours 1–2, 26g/h on most legs, and 18g/h on the long AID 3 → Weymouth stretch — food portions are increased in those hours to compensate.', tag: 'Lucozade Sport' },
-      { name: 'Lucozade Flask 2', capacity: '500 ml (chest)', role: 'Lucozade Sport — carb + sodium', detail: 'Both 500ml chest flasks carry Lucozade Sport (6.4% concentration, 32g carbs per flask). Sip from both throughout each leg. The bladder carries plain water with electrolyte tabs for the balance of your fluid intake and as a GI safety net — if your stomach feels off, switch to the bladder and stop the Lucozade flasks until it settles.', tag: 'Lucozade Sport' },
-      { name: 'Bladder',          capacity: '1.5–2 L (back)', role: 'Plain water + electrolyte tabs', detail: 'The bladder carries plain water with electrolyte tabs for the balance of your fluid intake and as a GI safety net — if your stomach feels off, switch to the bladder and stop the Lucozade flasks until it settles. Switch to bladder-only in the final hour (Hr 17).', tag: 'Water / backup' },
+      { name: 'Lucozade Flask 2', capacity: '500 ml (chest)', role: 'Lucozade Sport — carb + sodium', detail: 'Both 500ml chest flasks carry Lucozade Sport (6.4% concentration, 32g carbs per flask). Sip from both throughout each leg. Do NOT add electrolyte tabs to the flasks — the Lucozade already contains sodium and adding tabs will push concentration too high.', tag: 'Lucozade Sport' },
+      { name: 'Bladder',          capacity: '1.5 L (back) — 2 L at AID 3', role: 'Plain water + 1× PH500 tab per 500 ml', detail: 'Plain water only in the bladder — add 1 Precision Hydration 500 tab per 500 ml when filling. 1.5 L at all stops except AID 3 where crew top it up to 2 L for the long 3.5-hour push to Weymouth. Switch to bladder-only if gut issues arise. Hr 17: bladder only (water, no Lucozade).', tag: 'Water + PH500' },
     ],
     rules: [
-      'Refill both Lucozade Sport flasks and the bladder at every aid station.',
-      'Drink 1–2 extra cups at each stop before leaving — do not rely on carry alone.',
-      'Lucozade Sport provides ~460mg sodium/L — close to the 500mg/L target. Biltong, pretzels and broth across the race cover the small gap. No additional electrolyte tabs needed in the flasks.',
+      'Refill both Lucozade Sport flasks at every aid station. Refill the bladder with plain water + 1 PH500 tab per 500 ml.',
+      'At AID 3 specifically: crew top up the bladder to 2 L (add an extra 500 ml) — this is the longest leg (~3.5 hrs to Weymouth) and you will need it.',
+      'Drink 1–2 extra cups at each stop before leaving. The 900–950 ml/hr target is all-in including these cups.',
+      'Sodium split: Lucozade provides ~230 mg Na per 500 ml flask. Each PH500 tab provides 500 mg Na per 500 ml bladder water. Together they hit the 450–500 mg/hr target without relying solely on food.',
+      'NEVER add electrolyte tabs to the Lucozade flasks — tabs go in the plain-water bladder only. Mixing tabs into Lucozade makes it hypertonic and will cause gut issues.',
       'AID 3 → Weymouth is the longest leg (~20 km, ~3.5 hrs) — the Lucozade flasks are designed to be nearly empty on arrival. That is expected.',
       'If gut issues strike: stop the Lucozade flasks, switch to bladder only, let things settle for an hour before reintroducing.',
-      'Let thirst guide fine-tuning in the back half. Overdrinking is a bigger risk than underdrinking on a mild day.',
+      'Let thirst guide fine-tuning in the back half. Overdrinking is a bigger risk than underdrinking on a mild UK day.',
     ],
   },
 
@@ -176,7 +178,7 @@ const PLAN = {
           { id: 'sh_dt', text: '4× Medjool dates — pre-portioned with nut butter in zip-locks',     detail: 'Hrs 4 and 12. Pack 2 per zip-lock with nut butter inside. Easy to grab while moving.' },
           { id: 'sh_bi', text: 'Biltong — 2 small packs',                                            detail: 'Hrs 8 and 14 (planned) plus ad-hoc palette resets. Salt + protein.' },
           { id: 'sh_cg', text: '3× PF&H caffeine gel (100 mg caffeine / 30 g carbs each)',          detail: 'Order at precisionhydration.com — use code CS-Military at checkout. Gel #1 leaving Weymouth (~5pm), Gel #2 at AID 5 (~7pm), Gel #3 optional 8–9pm.' },
-          { id: 'sh_et', text: '10× electrolyte tabs',                                               detail: '1 tab per 500 ml bladder fill. Lucozade Sport covers sodium in the flasks — tabs are for the plain-water bladder only.' },
+          { id: 'sh_et', text: '20× Precision Hydration 500 tabs — BLADDER ONLY, never the flasks', detail: '1 tab per 500 ml plain water in the bladder. 7 bladder refills × avg 1–1.5 L = ~2–3 tabs per stop. 20 tabs covers the full race with a buffer. NEVER add to Lucozade flasks — tabs go in the plain-water bladder only. Crew should carry these and add them when refilling the bladder at each aid station.' },
           { id: 'sh_bn', text: '2× bananas',                                                         detail: 'One eaten at breakfast, one at pre-start (30 min before gun).' },
           { id: 'sh_bf', text: 'Breakfast: bagel, honey/jam, Greek yoghurt, fruit juice',           detail: 'Eat at 4–4:30 am. Target ~140 g carbs before the 7 am start.' },
         ],
@@ -190,7 +192,8 @@ const PLAN = {
           { id: 'cr_dt', text: '4× dates with nut butter (zip-locks for Hr 4 and Hr 12)',           detail: 'Hand to James at AID 2 (for Hr 4) and at AID 4/Weymouth (for Hr 12).' },
           { id: 'cr_sq', text: '4× SquareBars',                                                      detail: 'Hand to James at AID 3 (Hrs 8 and 9) and AID 6 (Hr 17 + spare).' },
           { id: 'cr_js', text: 'Jelly sweets — small bag',                                           detail: 'Hand to James at AID 3 (Hr 8 pocket) and AID 5 (Hr 14 pocket).' },
-          { id: 'cr_bi', text: 'Biltong — 2 small zip-locks',                                        detail: 'Hand over at AID 3 (for Hr 8) and AID 5 (for Hr 14). James carries a small starting amount.' },
+          { id: 'cr_bi', text: 'Biltong — 3 small zip-locks',                                        detail: 'Hand over at AID 3 (for Hr 8), AID 5 (for Hr 14) and AID 6 (for Hr 16). James carries a small starting amount.' },
+          { id: 'cr_et', text: '20× Precision Hydration 500 tabs — for bladder refills',             detail: 'Add 1 tab per 500 ml when refilling James\'s bladder at each aid station. Standard fill = 1.5 L = 3 tabs. At AID 3: fill to 2 L = 4 tabs (long leg to Weymouth). NEVER add tabs to the Lucozade flasks.' },
           { id: 'cr_wl', text: 'Warm layer for James — hand over at AID 5 (70 km, ~7:30 pm)',       detail: 'James puts it on before leaving AID 5. Do not save it for AID 6 — it will already be dark by then.' },
           { id: 'cr_ht', text: 'Spare headtorch — as backup if James\'s torch fails',               detail: 'Know where it is. Dusk hits at around Hr 14 (~8 pm).' },
           { id: 'cr_bk', text: 'Basic blister and first-aid kit',                                    detail: 'Needle, tape, Vaseline. Have it ready — James applies it himself.' },
@@ -202,7 +205,7 @@ const PLAN = {
         items: [
           { id: 'vs_f1', text: 'Flask 1 — filled with Lucozade Sport (500 ml)',                      detail: '32 g carbs per flask at 6.4% concentration. Both chest flasks carry Lucozade Sport.' },
           { id: 'vs_f2', text: 'Flask 2 — filled with Lucozade Sport (500 ml)',                      detail: '32 g carbs per flask. Crew refill both flasks at every aid station.' },
-          { id: 'vs_bl', text: 'Bladder — plain water + 2 electrolyte tabs (1.5–2 L)',               detail: 'Bulk fluid and gut safety net. Crew top up at every stop.' },
+          { id: 'vs_bl', text: 'Bladder — plain water + 3× PH500 tabs, filled to 1.5 L at start',   detail: 'Add 1 Precision Hydration 500 tab per 500 ml of plain water (3 tabs for 1.5 L start fill). Crew refill with tabs at every aid station — they carry the tabs. AID 3: crew top up to 2 L (4 tabs) for the long leg to Weymouth. NEVER mix tabs into the Lucozade flasks.' },
           { id: 'vs_jb', text: '~15 jelly babies (Hrs 1 and 2 only)',                                detail: 'Enough for the first leg to AID 1. Crew restock vest pockets at every subsequent stop.' },
           { id: 'vs_bi', text: 'Biltong — small handful for ad-hoc palette resets',                  detail: 'Small starting amount only. Crew hand over fresh packs at AID 3 and AID 5.' },
           { id: 'vs_cg', text: '3× caffeine gels in a separate marked pouch',                        detail: 'Not needed until ~5pm leaving Weymouth (Hr 11). Do NOT mix with regular snacks. Know the pouch location from the start.' },
@@ -241,7 +244,7 @@ const PLAN = {
   savoury: {
     intro: 'Sweet foods stop being appealing somewhere around hour 6–8. The plan builds in savoury options to pre-empt this.',
     items: [
-      { name: 'Biltong',                        when: 'Hr 8 and Hr 14 (planned) + ad-hoc as palette reset', detail: 'Planned at Hr 8 and Hr 14. Feel free to add small amounts at other times — salt, protein, and a completely different flavour from everything else in your vest. Trial on your next two long runs — if it does not sit right, swap for extra jelly babies and pretzels from the aid stations.' },
+      { name: 'Biltong',                        when: 'Hr 8, Hr 14 and Hr 16 (planned) + ad-hoc as palette reset', detail: 'Planned at Hr 8, Hr 14 and Hr 16 — three planned hits across the back half. Feel free to add small amounts at other times — salt, protein, and a completely different flavour from everything else in your vest. Trial on your next two long runs — if it does not sit right, swap for extra jelly babies and pretzels from the aid stations.' },
       { name: 'Sandwich',                       when: 'AID 2 (25 km)',                               detail: 'Go with whatever you are craving between two slices of bread when you arrive. Trial on your next long run — if gut issues follow, switch to Squares Bar + crisps instead.' },
       { name: 'Crisps, pretzels, tortilla chips', when: 'Aid stations — take whenever available',    detail: 'Salt + crunch + non-sweet. Especially effective in the back half. Never skip these at an aid station — take what is on offer.' },
       { name: 'Broth or soup',                  when: 'Weymouth (58 km) and AID 6 (83 km)',          detail: 'Salty, warming. Settles the stomach when you grow tired of sweet foods. Both major hot stops should have broth available.' },
@@ -821,7 +824,7 @@ function RaceCardSection() {
           body * { visibility: hidden !important; }
           #race-card-print, #race-card-print * { visibility: visible !important; }
           #race-card-print { position: fixed; top: 0; left: 0; width: 100%; }
-          @page { size: A4 portrait; margin: 10mm; }
+          @page { size: A5 portrait; margin: 5mm; }
         }
       `}</style>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
@@ -837,80 +840,92 @@ function RaceCardSection() {
       </div>
       <div id="race-card-print">
         <div style={{
-          background: C.blue, borderRadius: '6px 6px 0 0',
-          padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          background: C.blue, borderRadius: '5px 5px 0 0',
+          padding: '8px 14px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ width: 38, height: 38, borderRadius: 7, background: C.white, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-              <img src="uploads/logo-1777130559848.png" alt="" style={{ width: 34, height: 34, objectFit: 'contain' }} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ width: 26, height: 26, borderRadius: 5, background: C.white, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+              <img src="uploads/logo-1777130559848.png" alt="" style={{ width: 22, height: 22, objectFit: 'contain' }} />
             </div>
             <div>
-              <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Fairbairn Nutrition</div>
-              <div style={{ fontSize: 16, fontWeight: 700, color: C.white }}>{PLAN.athlete}</div>
+              <div style={{ fontSize: 7.5, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)' }}>Fairbairn Nutrition</div>
+              <div style={{ fontSize: 12, fontWeight: 700, color: C.white }}>{PLAN.athlete}</div>
             </div>
           </div>
           <div style={{ textAlign: 'right' }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: C.white }}>{PLAN.race}</div>
-            <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', marginTop: 1 }}>{PLAN.date} · {PLAN.distance}</div>
+            <div style={{ fontSize: 10, fontWeight: 600, color: C.white }}>{PLAN.race}</div>
+            <div style={{ fontSize: 9, color: 'rgba(255,255,255,0.7)', marginTop: 1 }}>{PLAN.date} · {PLAN.distance}</div>
           </div>
         </div>
-        <div style={{ background: '#F9F8F6', border: `1px solid ${C.rule}`, borderTop: 'none', padding: '8px 20px', display: 'flex', gap: 16, alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ background: '#F9F8F6', border: `1px solid ${C.rule}`, borderTop: 'none', padding: '4px 14px', display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
           {[
-            ['Pre-race / Finish', '#2A9D5C'],
+            ['Pre/Finish', '#2A9D5C'],
             ['Moving', C.muted],
             ['Aid stop', C.blue],
             ['Hot meal', C.orange],
-            ['Dark hours', '#6B4FBB'],
+            ['Dark', '#6B4FBB'],
           ].map(([l, col]) => (
-            <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 5, fontSize: 10.5 }}>
-              <div style={{ width: 10, height: 10, borderRadius: 2, background: col }} />
+            <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 8.5 }}>
+              <div style={{ width: 8, height: 8, borderRadius: 2, background: col, flexShrink: 0 }} />
               <span style={{ color: C.muted }}>{l}</span>
             </div>
           ))}
-          <div style={{ marginLeft: 'auto', fontSize: 10.5, color: C.muted }}>
-            <span style={{ ...mono, fontWeight: 700, color: C.orange }}>32g/26g</span> = Lucozade Sport · <span style={{ color: '#6B4FBB', fontWeight: 600 }}>⚡</span> = caffeine gel
+          <div style={{ marginLeft: 'auto', fontSize: 8.5, color: C.muted }}>
+            <span style={{ ...mono, fontWeight: 700, color: C.orange }}>g</span> = carbs · <span style={{ color: '#6B4FBB', fontWeight: 600 }}>⚡</span> = caffeine
           </div>
         </div>
         <div style={{
-          display: 'grid', gridTemplateColumns: '72px 110px 1fr auto',
-          padding: '6px 20px', background: C.bg,
+          display: 'grid', gridTemplateColumns: '52px 88px 1fr auto',
+          padding: '4px 14px', background: C.bg,
           border: `1px solid ${C.rule}`, borderTop: 'none',
-          fontSize: 9, fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: C.muted,
-          gap: 12,
+          fontSize: 7.5, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: C.muted,
+          gap: 8,
         }}>
           <div>Time</div>
           <div>Section</div>
           <div>Eat &amp; Drink</div>
-          <div style={{ textAlign: 'right' }}>Total carbs</div>
+          <div style={{ textAlign: 'right' }}>Carbs</div>
         </div>
-        <div style={{ border: `1px solid ${C.rule}`, borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
+        <div style={{ border: `1px solid ${C.rule}`, borderTop: 'none', borderRadius: '0 0 5px 5px', overflow: 'hidden' }}>
           {CARD_ROWS.map((row, i) => {
             const pc = PHASE_COLORS[row.phase];
             const isSpecial = row.phase === 'start' || row.phase === 'finish';
             return (
               <div key={i} style={{
-                display: 'grid', gridTemplateColumns: '72px 110px 1fr auto',
-                alignItems: 'center', gap: 12,
+                display: 'grid', gridTemplateColumns: '52px 88px 1fr auto',
+                alignItems: 'center', gap: 8,
                 background: pc.bg,
-                borderLeft: `4px solid ${pc.strip}`,
+                borderLeft: `3px solid ${pc.strip}`,
                 borderBottom: i < CARD_ROWS.length - 1 ? `1px solid ${pc.border}` : 'none',
-                padding: isSpecial ? '10px 16px' : '7px 16px',
-                minHeight: isSpecial ? 44 : 38,
+                padding: isSpecial ? '6px 10px' : '3px 10px',
+                minHeight: isSpecial ? 30 : 24,
               }}>
-                <div style={{ ...mono, fontSize: isSpecial ? 13 : 11.5, fontWeight: 700, color: pc.label, lineHeight: 1.2 }}>{row.time}</div>
-                <div style={{ fontSize: isSpecial ? 13 : 11.5, fontWeight: isSpecial ? 700 : 500, color: pc.label, lineHeight: 1.2 }}>{row.label}</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center' }}>
+                <div style={{ ...mono, fontSize: isSpecial ? 10 : 9, fontWeight: 700, color: pc.label, lineHeight: 1.2 }}>{row.time}</div>
+                <div style={{ fontSize: isSpecial ? 10 : 9, fontWeight: isSpecial ? 700 : 500, color: pc.label, lineHeight: 1.2 }}>{row.label}</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 3, alignItems: 'center' }}>
                   {row.drink && (
                     <div style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 4,
+                      display: 'inline-flex', alignItems: 'center', gap: 3,
                       background: C.blueTint, border: `1px solid #BDD8E8`,
-                      borderRadius: 4, padding: '2px 7px', fontSize: 11.5, fontWeight: 500,
+                      borderRadius: 3, padding: '1px 5px', fontSize: 9, fontWeight: 500,
                     }}>
-                      <span style={{ color: C.muted }}>💧 Lucozade</span>
-                      <span style={{ ...mono, fontWeight: 700, fontSize: 11, color: C.blue }}>{row.drink}g</span>
+                      <span style={{ color: C.muted }}>💧</span>
+                      <span style={{ ...mono, fontWeight: 700, fontSize: 8.5, color: C.blue }}>{row.drink}g</span>
                     </div>
                   )}
-                  {row.food.map((f, fi) => <FoodPill key={fi} item={f} />)}
+                  {row.food.map((f, fi) => (
+                    <div key={fi} style={{
+                      display: 'inline-flex', alignItems: 'center', gap: 3,
+                      background: f.name.startsWith('⚡') ? '#F5F0FA' : C.bg,
+                      border: `1px solid ${f.name.startsWith('⚡') ? '#D8CEF0' : C.rule}`,
+                      borderRadius: 3, padding: '1px 5px',
+                      fontSize: 9, fontWeight: 500, lineHeight: 1.2,
+                      color: f.name.startsWith('⚡') ? '#6B4FBB' : C.dark,
+                    }}>
+                      <span>{f.name}</span>
+                      {f.g > 0 && <span style={{ ...mono, fontWeight: 700, fontSize: 8.5, color: f.name.startsWith('⚡') ? '#6B4FBB' : C.orange }}>{f.g}g</span>}
+                    </div>
+                  ))}
                   {row.flags.map((flag, fi) => {
                     const isHot  = flag.includes('HOT');
                     const isAid  = flag.includes('AID');
@@ -919,25 +934,25 @@ function RaceCardSection() {
                     const bgCol  = isHot ? C.orange : isAid ? C.blue : isCaf ? '#6B4FBB' : isWarn ? '#B45309' : C.dark;
                     return (
                       <span key={fi} style={{
-                        display: 'inline-block', fontSize: 9.5, fontWeight: 700,
-                        padding: '2px 6px', borderRadius: 3, letterSpacing: '0.04em',
+                        display: 'inline-block', fontSize: 7.5, fontWeight: 700,
+                        padding: '1px 4px', borderRadius: 2, letterSpacing: '0.03em',
                         background: bgCol, color: C.white,
                       }}>{flag}</span>
                     );
                   })}
                 </div>
-                <div style={{ textAlign: 'right', ...mono, fontSize: row.total ? 14 : 12, fontWeight: 700, color: row.total ? C.orange : C.muted, whiteSpace: 'nowrap' }}>
+                <div style={{ textAlign: 'right', ...mono, fontSize: row.total ? 11 : 9, fontWeight: 700, color: row.total ? C.orange : C.muted, whiteSpace: 'nowrap' }}>
                   {row.total ? `${row.total}g` : '—'}
                 </div>
               </div>
             );
           })}
         </div>
-        <div style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 4px' }}>
-          <div style={{ fontSize: 10.5, color: C.muted }}>
-            In-race total: <strong style={{ color: C.dark, ...mono }}>~1,085g carbs</strong> · avg <strong style={{ color: C.dark, ...mono }}>~64g/hr</strong>
+        <div style={{ marginTop: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '4px 2px' }}>
+          <div style={{ fontSize: 8.5, color: C.muted }}>
+            In-race: <strong style={{ color: C.dark, ...mono }}>~1,085g carbs</strong> · avg <strong style={{ color: C.dark, ...mono }}>~64g/hr</strong>
           </div>
-          <div style={{ fontSize: 10.5, color: C.muted }}>Fairbairn Nutrition · info@ultraendurancenutrition.com</div>
+          <div style={{ fontSize: 8.5, color: C.muted }}>Fairbairn Nutrition · info@ultraendurancenutrition.com</div>
         </div>
       </div>
     </div>
